@@ -25,23 +25,23 @@ export class NavbarComponent implements NavItems{
     this.items = [
       {
         route: '/home',
-        icon: '<i class="material-icons">home</i>',
+        icon: '<i class="material-icons sidenav-link-icon">home</i>',
         label: 'Inicio'
       },
       {
         route: '/about',
-        icon: '<i class="material-icons">info</i>',
+        icon: '<i class="material-icons sidenav-link-icon">info</i>',
         label: 'Acerca de'
       },
       {
         route: '/contact',
-        icon: '<i class="material-icons">mail</i>',
+        icon: '<i class="material-icons sidenav-link-icon">mail</i>',
         label: 'Contacto'
       }
     
     ];
   }
-  collapsed:boolean=false;
+  collapsed:boolean=true;
 
 
 }
