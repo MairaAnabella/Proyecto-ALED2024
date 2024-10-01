@@ -1,8 +1,17 @@
-<mat-toolbar color="primary">
-    <mat-toolbar-row>
-        <h4>hola</h4>
-        <button mat-button><mat-icon>home</mat-icon></button>
-    </mat-toolbar-row>
-    
-
-</mat-toolbar>
+<div class="sidenav" ngClass="collapsed ? 'sidenav-collpsed:">
+    <div class="logo-container">
+        <button class="logo">A</button>
+        <div class="logo-text" *ngIf="collapsed">Angular</div>
+        <button class="btn-close"*ngIf="collapsed"><span class="material-symbols-outlined">
+            close
+            </span></button>
+    </div>
+    <ul class="sidenav-nav">
+        <li class="sidenav-nav-item" *ngFor="let data of items">
+            <a href="" class="sidenav-link-link" [routerLink]="[data.route]">
+                <span [innerHTML]="data.icon"></span>
+                <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
+            </a>
+        </li>
+    </ul>
+</div>

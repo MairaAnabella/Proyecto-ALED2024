@@ -1,24 +1,47 @@
 import { Component } from '@angular/core';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatListModule} from '@angular/material/list';
+import { NgIf,NgFor } from '@angular/common';
+import { NavItems } from '../../nav-items';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-navbar',
   standalone: true,
   imports: [
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatListModule 
+    NgIf,
+    NgFor,
+    RouterModule
     
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent {
-  nombre:string='';
+export class NavbarComponent implements NavItems{
+  items: {
+    route: string;
+    icon: string;
+    label: string;
+  }[];
+
+  constructor() {
+    this.items = [
+      {
+        route: '/home',
+        icon: '<i class="material-icons">home</i>',
+        label: 'Inicio'
+      },
+      {
+        route: '/about',
+        icon: '<i class="material-icons">info</i>',
+        label: 'Acerca de'
+      },
+      {
+        route: '/contact',
+        icon: '<i class="material-icons">mail</i>',
+        label: 'Contacto'
+      }
+    
+    ];
+  }
+  collapsed:boolean=false;
+
 
 }
