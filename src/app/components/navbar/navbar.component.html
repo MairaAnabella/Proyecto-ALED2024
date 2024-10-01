@@ -1,8 +1,8 @@
-<div class="sidenav" ngClass="collapsed ? 'sidenav-collpsed:">
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed':''">
     <div class="logo-container">
-        <button class="logo">A</button>
+        <button class="logo" (click)="toggleCollapse()">A</button>
         <div class="logo-text" *ngIf="collapsed">Angular</div>
-        <button class="btn-close"*ngIf="collapsed"></button>
+        <button class="btn-close"*ngIf="collapsed" (click)="closeSidenav()"><i class="material-icons sidenav-link-icon">close</i></button>
     </div>
     <ul class="sidenav-nav">
         <li class="sidenav-nav-item" *ngFor="let data of items">

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { NgIf,NgFor } from '@angular/common';
 import { NavItems } from '../../nav-items';
 import { RouterModule } from '@angular/router';
@@ -8,13 +9,15 @@ import { RouterModule } from '@angular/router';
   imports: [
     NgIf,
     NgFor,
-    RouterModule
+    RouterModule,
+    CommonModule
     
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements NavItems{
+  collapsed:boolean=true;
   items: {
     route: string;
     icon: string;
@@ -41,7 +44,15 @@ export class NavbarComponent implements NavItems{
     
     ];
   }
-  collapsed:boolean=true;
+
+
+  toggleCollapse(){
+    this.collapsed=!this.collapsed;
+  }
+
+  closeSidenav(){
+    this.collapsed=false;
+  }
 
 
 }
