@@ -1,11 +1,13 @@
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgIf, NgFor } from '@angular/common';
-import { NavItems } from '../../nav-items';
+import { NavItems } from './nav-items';
 import { RouterModule } from '@angular/router';
-//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
-import { animate, keyframes, style, transition, trigger } from '@angular/animations';
+
 
 
 interface SideNavToggle{
@@ -22,38 +24,15 @@ interface SideNavToggle{
     NgFor,
     RouterModule,
     CommonModule,
+    MatToolbarModule, MatButtonModule, MatIconModule
+
+  
     
     
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
-  animations:[
-    trigger('fadeInOut',[
-      transition(':enter',[
-        style({opacity:0}),
-        animate('350ms',
-          style({opacity:1})
-        )
-      ])
-    ]),
-    transition(':leave',[
-      style({opacity:1}),
-      animate('350ms', 
-        style({opacity:0})
-      )
-    ]),
 
-    trigger('rotate',[
-      transition(':enter',[
-        animate('1000ms',
-          keyframes([
-            style({transform:'rotate(0deg)',offset:'0'}),
-            style({transform:'rotate(2turn)',offset:'1'})
-          ])
-        )
-      ])
-    ])
-  ]
 })
 export class NavbarComponent implements NavItems ,OnInit{
 
@@ -70,18 +49,18 @@ export class NavbarComponent implements NavItems ,OnInit{
   constructor() {
     this.items = [
       {
-        route: '/login',
-        icon: '<i class="material-icons sidenav-link-icon">home</i>',
+        route: '/home',
+        icon: 'home',
         label: 'Inicio'
       },
       {
-        route: '/component',
-        icon: '<i class="material-icons sidenav-link-icon">info</i>',
+        route: '/login',
+        icon: 'info',
         label: 'Acerca de'
       },
       {
         route: '/contact',
-        icon: '<i class="material-icons sidenav-link-icon">mail</i>',
+        icon: 'mail',
         label: 'Contacto'
       }
     

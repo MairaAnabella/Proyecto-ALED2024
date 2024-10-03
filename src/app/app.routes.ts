@@ -5,13 +5,17 @@ import { LoginComponent } from './auth/login/login.component';
 export const routes: Routes = [
     { // pone la ruta por defecto
         path: '',
-        redirectTo: 'login',
+        redirectTo: 'home',
         pathMatch: 'full'
 
     },
     {
-        path: 'login',
-        component: LoginComponent,
+        path: 'home',
+        component: HomeComponent,
 
     },
+    {
+        path:'login',
+        component:LoginComponent
+    }
 ];
