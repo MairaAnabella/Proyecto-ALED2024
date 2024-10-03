@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NavbarComponent } from "../navbar/navbar.component";
 import { CommonModule } from '@angular/common';
-import { style } from '@angular/animations';
+
+
 
 @Component({
   selector: 'app-body',

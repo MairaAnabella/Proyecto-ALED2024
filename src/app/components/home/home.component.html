@@ -1,4 +1,24 @@
+<!-- <app-navbar (onToggleSideNav)="onTogleSideNav($event)"></app-navbar>  -->
 <div class="dashboard-container">
+    <div class="user-menu">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="User menu">
+          <mat-icon>account_circle</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>person</mat-icon>
+            <span>Perfil</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>settings</mat-icon>
+            <span>Configuración</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Cerrar sesión</span>
+          </button>
+        </mat-menu>
+      </div>
     <header class="dashboard-header">
       <h1 class="mat-headline-2">HOLA ESCUELA</h1>
       <p class="mat-subtitle-1">Bienvenid a tu espacio de gestión de la formación</p>

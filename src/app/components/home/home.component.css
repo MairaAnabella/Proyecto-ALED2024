@@ -46,6 +46,11 @@
     background-color: #f5f5f5;
     min-height: 100vh;
   }
+  .user-menu {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
   .dashboard-header {
     text-align: center;
     margin-bottom: 2rem;

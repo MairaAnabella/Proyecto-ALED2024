@@ -1,18 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import { MatGridListModule } from '@angular/material/grid-list';
-export interface Tile {
-  color: string;
-  cols: number;
-  rows: number;
-  text: string;
-}
-
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { NavbarComponent } from '../navbar/navbar.component';
 interface DashboardButton {
   icon: string;
   text: string;
@@ -22,8 +14,7 @@ interface DashboardButton {
   selector: 'app-home',
   standalone: true,
   imports: [
-    MatCardModule, MatIconModule,
-    MatGridListModule,CommonModule
+    CommonModule, MatCardModule, MatIconModule, MatButtonModule, MatMenuModule,NavbarComponent
 
   
   ],
@@ -31,13 +22,7 @@ interface DashboardButton {
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  tiles: Tile[] = [
-    { text: 'One', cols: 4, rows: 2, color: 'lightblue' },
-    { text: 'Two', cols: 1, rows: 1, color: 'lightgreen' },
-    { text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
-    { text: 'Four', cols: 1, rows: 1, color: '#DDBDF1' },
-    { text: 'Five', cols: 1, rows: 1, color: '#DDBDF5' },
-  ];
+
   buttons: DashboardButton[] = [
     { icon: 'group', text: '1,732 USUARIOS ACTIVOS', color: 'purple' },
     { icon: 'person_add', text: '983 INSCRIPCIONES', color: 'blue' },
