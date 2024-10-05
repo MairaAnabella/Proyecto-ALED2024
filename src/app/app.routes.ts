@@ -3,15 +3,11 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './auth/login/login.component';
 
 export const routes: Routes = [
-    {
-        path:'login',
-        component:LoginComponent
-    },
-
+  
 
     { // pone la ruta por defecto
         path: '',
-        redirectTo: 'login',
+        redirectTo: 'home',
         pathMatch: 'full'
 
     },
