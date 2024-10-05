@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NavbarComponent } from "./components/navbar/navbar.component";
-import { HomeComponent } from "./components/home/home.component";
-import { BodyComponent } from "./components/body/body.component";
+import { NavbarComponent } from './feature/inicio/navbar/navbar.component';
+import { HomeComponent } from './feature/inicio/home/home.component';
+
+import { BodyComponent } from './feature/inicio/body/body.component';
+
 
 
 interface SideNavToggle{
