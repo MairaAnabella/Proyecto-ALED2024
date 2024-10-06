@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { AuthService } from '../../LoginModule/auth.service';
 
 
 
@@ -40,13 +41,14 @@ export class NavbarComponent implements NavItems ,OnInit{
 
   collapsed:boolean=false;
   screenWidth:number=0;
+  islogin!:boolean;
   items: {
     route: string;
     icon: string;
     label: string;
   }[];
 
-  constructor() {
+  constructor(private authservice:AuthService) {
     this.items = [
       {
         route: '/home',
@@ -78,6 +80,8 @@ onResize(event:any){
 
   ngOnInit(): void {
    this.screenWidth=window.innerWidth;
+   console.log(this.authservice.isAuthenticated());
+   this.islogin=this.authservice.isAuthenticated();
   }
 
 

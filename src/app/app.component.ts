@@ -20,6 +20,7 @@ interface SideNavToggle{
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+
   title = 'gestion-educativa';
 
     isSidenavCollapsed=false;

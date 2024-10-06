@@ -1,148 +1,26 @@
-/* Global styles */
-body, html {
-    height: 100%;
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Container styles */
-  .login-container {
-    display: flex;
-    height: 100vh;
-    background-color: #f06292; /* Approximation of bg-pink-500 */
-  }
-  
-  .login-card {
-    margin: auto;
-    background-color: #e91e63; /* Approximation of bg-pink-600 */
-    border-radius: 0.5rem;
-    padding: 2rem;
-    display: flex;
-    max-width: 64rem;
-  }
-  
-  /* Left side styles */
-  .image-container {
-    flex: 1;
-    padding-right: 2rem;
-  }
-  
-  .image-wrapper {
-    position: relative;
-    width: 16rem;
-    height: 16rem;
-  }
-  
-  .image-background {
-    position: absolute;
-    inset: 0;
-    background-color: #ec407a; /* Approximation of bg-pink-400 */
-    border-radius: 50%;
-    opacity: 0.5;
-  }
-  
-  .study-image {
-    position: relative;
-    z-index: 10;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .tags {
-    margin-top: 1rem;
-  }
-  
-  .tag {
-    padding: 0.25rem 0.5rem;
-    border-radius: 9999px;
-    font-size: 0.875rem;
-    font-weight: bold;
-    margin-right: 0.5rem;
-  }
-  
-  .tag-story {
-    background-color: #ffd54f; /* Approximation of bg-yellow-400 */
-    color: #f57f17; /* Approximation of text-yellow-800 */
-  }
-  
-  .tag-literature {
-    background-color: #4fc3f7; /* Approximation of bg-blue-400 */
-    color: #0277bd; /* Approximation of text-blue-800 */
-  }
-  
-  /* Right side styles */
-  .form-container {
-    flex: 1;
-  }
-  
-  h1 {
-    font-size: 2.25rem;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 1.5rem;
-  }
-  
-  .subtitle {
-    color: #fce4ec; /* Approximation of text-pink-200 */
-    margin-bottom: 1.5rem;
-  }
-  
-  .form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .input-field {
-    width: 100%;
-    padding: 0.5rem;
-    border-radius: 9999px;
-    background-color: #ec407a; /* Approximation of bg-pink-400 */
-    color: white;
-  }
-  
-  .input-field::placeholder {
-    color: #fce4ec; /* Approximation of placeholder-pink-200 */
-  }
-  
-  .input-field:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px #f8bbd0; /* Approximation of focus:ring-2 focus:ring-pink-300 */
-  }
-  
-  .forgot-password {
-    text-align: right;
-  }
-  
-  .forgot-password a {
-    font-size: 0.875rem;
-    color: #fce4ec; /* Approximation of text-pink-200 */
-    text-decoration: none;
-  }
-  
-  .forgot-password a:hover {
-    text-decoration: underline;
-  }
-  
-  .submit-button {
-    width: 100%;
-    background-color: #2196f3; /* Approximation of bg-blue-500 */
-    color: white;
-    padding: 0.5rem;
-    border-radius: 9999px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  
-  .submit-button:hover {
-    background-color: #1e88e5; /* Approximation of hover:bg-blue-600 */
-  }
-  
-  .footer-text {
-    color: #fce4ec; /* Approximation of text-pink-200 */
-    margin-top: 1.5rem;
-    font-size: 0.875rem;
-    text-align: center;
-  }
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+mat-card {
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+button {
+  width: 100%;
+}
+
+mat-card-title {
+  margin-bottom: 20px;
+}
