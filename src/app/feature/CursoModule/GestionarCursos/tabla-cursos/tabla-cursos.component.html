@@ -1,0 +1,64 @@
+<div class="container">
+    <h1>Gestionar Cursos</h1>
+    <p>Realizar altas,bajas y modificar cursos!</p>
+    
+  </div>
+
+
+
+
+<div class="mat-elevation-z8">
+
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="tipo">
+        <th mat-header-cell *matHeaderCellDef> Tipo </th>
+        <td mat-cell *matCellDef="let element"> {{element.tipo}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="descripcion">
+        <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+        <td mat-cell *matCellDef="let element"> {{element.descripciopn }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="fechaAlta">
+        <th mat-header-cell *matHeaderCellDef> Fecha de Alta </th>
+        <td mat-cell *matCellDef="let element"> {{element.fechaAlta | date:'dd/MM/yyyy HH:mm'}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="fechaModificacion">
+        <th mat-header-cell *matHeaderCellDef> Fecha de Modificación </th>
+        <td mat-cell *matCellDef="let element"> {{element.fechaModificacion | date:'dd/MM/yyyy HH:mm'}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>     <button mat-icon-button  class="btn-agregar" (click)="agregarClase()">
+            <mat-icon class="icon-add">add</mat-icon>
+          </button> </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button class="btn-editar" (click)="editarClase(element)">
+            <mat-icon class="icon-edit">edit</mat-icon>
+          </button>
+          <button mat-icon-button class="btn-eliminar" (click)="eliminarClase(element.id)">
+            <mat-icon class="icon-delete">delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  
+
+  </div>

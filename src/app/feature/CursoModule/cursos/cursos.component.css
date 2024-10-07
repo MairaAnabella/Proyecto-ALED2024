@@ -1,0 +1,37 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  h1 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  p {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+
+.curso-card {
+    width: 100%;
+    max-width: 350px;
+    margin: 16px;
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  .curso-card:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    transform: translateY(-5px);
+  }
+  .mat-mdc-card-image {
+    height: 200px;
+    object-fit: cover;
+  }
+  .descripcion-container {
+    overflow: hidden;
+  }
+  .inscribirse-btn {
+    width: 100%;
+    margin-top: 16px;
+  }

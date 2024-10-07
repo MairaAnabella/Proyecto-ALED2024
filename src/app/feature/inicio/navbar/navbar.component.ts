@@ -56,14 +56,24 @@ export class NavbarComponent implements NavItems ,OnInit{
         label: 'Inicio'
       },
       {
-        route: '/login',
-        icon: 'info',
-        label: 'Acerca de'
+        route: '/cursos',
+        icon: 'menu_book',
+        label: 'Cursos'
       },
       {
         route: '/contact',
-        icon: 'mail',
-        label: 'Contacto'
+        icon: 'list_alt',
+        label: 'Mis cursos'
+      },
+      {
+        route: '/gestionCursos',
+        icon: 'edit_note',
+        label: 'Gestionar Cursos'
+      },
+      {
+        route: '/contact',
+        icon: 'manage_accounts',
+        label: 'Gestionar Estudiantes'
       }
     
     ];

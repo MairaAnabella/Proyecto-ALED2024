@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>{{data.modo === 'agregar' ? 'Agregar Curso' : 'Editar Curso'}}</h1>
+    <div mat-dialog-content>
+      <mat-form-field>
+        <input matInput ngModel="curso.nombre" placeholder="Nombre">
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput placeholder="Descripción del curso"></textarea>
+        <!-- <input matInput ngModel="curso.nombre" placeholder="Nombre"> -->
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select ngModel="curso.tipo" placeholder="Tipo">
+          <mat-option value="virtual">Virtual</mat-option>
+          <mat-option value="presencial">Presencial</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">Cancelar</button>
+      <button mat-button [mat-dialog-close]="curso" cdkFocusInitial>Guardar</button>
+    </div>

@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './feature/inicio/home/home.component';
 import { LoginComponent } from './feature/LoginModule/login/login.component';
+import { CursosComponent } from './feature/CursoModule/cursos/cursos.component';
+import { TablaCursosComponent } from './feature/CursoModule/GestionarCursos/tabla-cursos/tabla-cursos.component';
 
 
 
@@ -23,6 +25,17 @@ export const routes: Routes = [
     {
         path: 'home',
         component: HomeComponent,
+
+    },
+    
+    {
+        path: 'cursos',
+        component:CursosComponent ,
+
+    },
+    {
+        path: 'gestionCursos',
+        component:TablaCursosComponent ,
 
     },
    

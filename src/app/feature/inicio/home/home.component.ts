@@ -22,14 +22,14 @@ interface DashboardButton {
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-
+icon='psychology';
   buttons: DashboardButton[] = [
-    { icon: 'group', text: '1,732 USUARIOS ACTIVOS', color: 'purple' },
-    { icon: 'person_add', text: '983 INSCRIPCIONES', color: 'blue' },
-    { icon: 'attach_money', text: '3.050€ INGRESOS', color: 'red' },
-    { icon: 'menu_book', text: '10 AFORO MEDIO', color: 'green' },
-    { icon: 'book', text: '12 CURSOS ACTIVOS', color: 'yellow' },
-    { icon: 'star', text: '4.3 MEDIA VALORACIONES', color: 'grey' }
+    { icon: 'menu_book', text: 'CURSOS', color: 'purple' },
+    { icon: 'list_alt', text: 'MIS INSCRIPCIONES', color: 'purple' },
+    { icon: 'edit_note', text: 'GESTIONAR DE CURSOS', color: 'purple' },
+    { icon: 'manage_accounts', text: 'GESTION DE ESTUDIANTES', color: 'purple' },
+   /*  { icon: 'book', text: '12 CURSOS ACTIVOS', color: 'purple' },
+    { icon: 'star', text: '4.3 MEDIA VALORACIONES', color: 'purple' } */
   ];
 
 }
