@@ -1,6 +1,6 @@
 <div class="container">
-    <h1>DevMinds</h1>
-    <p>Bienvenido/a a tu espacio de gestión de la formación</p>
+    <h1>Inscripción a Cursos</h1>
+    <p>Explora nuestros cursos disponibles y regístrate fácilmente en los que más te interesen.</p>
     
   </div>
 
@@ -15,8 +15,8 @@
             <h3 class="mat-h2">{{ curso.nombre }}</h3>
             <div [@descripcionEstado]="curso.mostrarDescripcion ? 'mostrar' : 'ocultar'" class="descripcion-container">
               <p>{{ curso.descripcion }}</p>
-              <button mat-raised-button color="primary" class="inscribirse-btn">
-                Inscribirse
+              <button mat-flat-button class="btn-inscribirse">
+                <span class="txt-btn">Inscribirse</span>
               </button>
             </div>
           </mat-card-content>

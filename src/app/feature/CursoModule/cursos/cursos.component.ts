@@ -39,19 +39,19 @@ export class CursosComponent {
       id: 1,
       nombre: 'Introducción a Angular',
       descripcion: 'Aprende los fundamentos de Angular y construye tu primera aplicación.',
-      imagenUrl: '/placeholder.svg?height=200&width=300',
+      imagenUrl: '/assets/angular.jpg',
     },
     {
       id: 2,
       nombre: 'TypeScript Avanzado',
       descripcion: 'Profundiza en los conceptos de TypeScript y las mejores prácticas.',
-      imagenUrl: '/placeholder.svg?height=200&width=300',
+      imagenUrl: '/assets/typescript.jpg',
     },
     {
       id: 3,
       nombre: 'Fundamentos de Diseño UI/UX',
       descripcion: 'Domina los principios del diseño de interfaz de usuario y experiencia de usuario.',
-      imagenUrl: '/placeholder.svg?height=200&width=300',
+      imagenUrl: '/assets/ux-ui.webp',
     },
   ];
 
