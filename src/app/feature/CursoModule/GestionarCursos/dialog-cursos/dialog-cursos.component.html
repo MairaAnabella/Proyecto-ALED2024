@@ -1,20 +1,45 @@
-<h1 mat-dialog-title>{{data.modo === 'agregar' ? 'Agregar Curso' : 'Editar Curso'}}</h1>
-    <div mat-dialog-content>
+<div *ngIf="data.modo === 'editar'"> 
+  <div mat-dialog-content>
+    <form [formGroup]="cursoForm">
       <mat-form-field>
-        <input matInput ngModel="curso.nombre" placeholder="Nombre">
+        <input matInput formControlName="nombre" placeholder="Nombre">
       </mat-form-field>
       <mat-form-field>
-        <textarea matInput placeholder="Descripción del curso"></textarea>
-        <!-- <input matInput ngModel="curso.nombre" placeholder="Nombre"> -->
+        <textarea matInput formControlName="descripcion" placeholder="Descripción del curso"></textarea>
       </mat-form-field>
       <mat-form-field>
-        <mat-select ngModel="curso.tipo" placeholder="Tipo">
+        <mat-select formControlName="tipo" placeholder="Tipo">
           <mat-option value="virtual">Virtual</mat-option>
           <mat-option value="presencial">Presencial</mat-option>
         </mat-select>
       </mat-form-field>
-    </div>
-    <div mat-dialog-actions>
-      <button mat-button (click)="onNoClick()">Cancelar</button>
-      <button mat-button [mat-dialog-close]="curso" cdkFocusInitial>Guardar</button>
-    </div>
+    </form>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()" class="btn-cancelar">Cancelar</button>
+    <button mat-button (click)="onSubmit()" cdkFocusInitial class="btn-guardar">Guardar</button>
+  </div>
+</div>
+
+<div *ngIf="data.modo=='agregar'">
+  <div mat-dialog-content>
+    <form [formGroup]="cursoForm">
+      <mat-form-field>
+        <input matInput formControlName="nombre" placeholder="Nombre">
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput formControlName="descripcion" placeholder="Descripción del curso"></textarea>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select formControlName="tipo" placeholder="Tipo">
+          <mat-option value="virtual">Virtual</mat-option>
+          <mat-option value="presencial">Presencial</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()" class="btn-cancelar">Cancelar</button>
+    <button mat-button (click)="onSubmit()" cdkFocusInitial class="btn-guardar">Guardar</button>
+  </div>
+</div>
