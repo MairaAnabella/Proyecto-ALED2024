@@ -27,8 +27,11 @@
       <mat-card *ngFor="let button of buttons" [ngClass]="['dashboard-button', button.color]">
         <mat-card-content>
           <mat-icon>{{button.icon}}</mat-icon>
-          <p>{{button.text}}</p>
+          <p> <button mat-button (click)="navigateToPage(button.route)">
+           <p style="color: #7b1fa2;"> {{button.text}} </p>
+          </button></p>
         </mat-card-content>
+       
       </mat-card>
     </div>
   </div>

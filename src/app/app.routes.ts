@@ -8,6 +8,7 @@ import { MisCursosComponent } from './feature/CursoModule/mis-cursos/mis-cursos.
 
 
 
+
 export const routes: Routes = [
     { // pone la ruta por defecto
         path: 'login',
@@ -49,6 +50,7 @@ export const routes: Routes = [
         component:MisCursosComponent,
 
     },
+ 
    
 
 ];

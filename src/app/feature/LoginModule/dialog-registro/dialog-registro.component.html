@@ -1,0 +1,51 @@
+<h2 mat-dialog-title>Registro de Usuario</h2>
+    <mat-dialog-content>
+      <form [formGroup]="registrationForm">
+        <mat-form-field appearance="fill">
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="name">
+          @if (registrationForm.get('name')?.invalid && (registrationForm.get('name')?.dirty || registrationForm.get('name')?.touched)) {
+            <mat-error>El nombre es requerido y debe tener al menos 2 caracteres.</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Apellido</mat-label>
+          <input matInput formControlName="surname">
+          @if (registrationForm.get('surname')?.invalid && (registrationForm.get('surname')?.dirty || registrationForm.get('surname')?.touched)) {
+            <mat-error>El apellido es requerido y debe tener al menos 2 caracteres.</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" type="email">
+          @if (registrationForm.get('email')?.invalid && (registrationForm.get('email')?.dirty || registrationForm.get('email')?.touched)) {
+            <mat-error>Por favor, ingrese un email válido.</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Contraseña</mat-label>
+          <input matInput formControlName="password" type="password">
+          @if (registrationForm.get('password')?.invalid && (registrationForm.get('password')?.dirty || registrationForm.get('password')?.touched)) {
+            <mat-error>La contraseña debe tener al menos 6 caracteres.</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Rol</mat-label>
+          <mat-select formControlName="role">
+            <mat-option value="2">Estudiante</mat-option>
+            <mat-option value="1">Administrador</mat-option>
+          </mat-select>
+          @if (registrationForm.get('role')?.invalid && (registrationForm.get('role')?.dirty || registrationForm.get('role')?.touched)) {
+            <mat-error>Por favor, seleccione un rol.</mat-error>
+          }
+        </mat-form-field>
+      </form>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button (click)="onCancel()">Cancelar</button>
+      <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="registrationForm.invalid">Registrarse</button>
+    </mat-dialog-actions>

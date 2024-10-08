@@ -6,3 +6,22 @@ export interface Estudiantes {
     fechaAlta: string;//Date
     fechaModificacion: string;
   }
+
+
+  /* 
+  CREATE TABLE usuarios (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(50),
+    apellido VARCHAR(50),
+    email VARCHAR(50),
+    idRol INT,
+    fechaAlta DATE,
+    fechaModificacion DATE,
+    CONSTRAINT idRol FOREIGN KEY(idRol) references roles(id)
+
+
+
+)
+  
+  
+  */
