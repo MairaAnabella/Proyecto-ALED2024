@@ -1,1 +1,24 @@
-<p>mis-cursos works!</p>
+<div class="container">
+  <h1 class="titulo">Mis Inscripciones a Cursos</h1>
+  <p class="descripcion">Gestiona tus inscripciones a los cursos aquí.<br> Consulta detalles y date de baja fácilmente de los cursos que ya no desees cursar</p>
+  
+</div>
+
+<div class="course-list">
+  @for (curso of miCurso; track curso.id) {
+    <div class="course-item" 
+             [@cardAnimation]="'in'" 
+             [@hoverAnimation]="curso.id === hoveredCourseId ? 'hovered' : 'normal'"
+             (mouseenter)="onMouseEnter(curso.id)"
+             (mouseleave)="onMouseLeave()"
+             (@cardAnimation.done)="onAnimationDone($event, curso.id)">
+      <h3>{{ curso.nombre }}</h3>
+      <p>Periodo: {{ curso.periodo }}</p>
+      <p>Docente: {{ curso.docente }}</p>
+
+        <p>{{ curso.horario }}</p>
+        <button class="unsubscribe" (click)="unsubscribe(curso.id)">Dar de baja</button>
+      
+    </div>
+  }
+</div>

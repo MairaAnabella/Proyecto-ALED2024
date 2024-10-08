@@ -61,7 +61,7 @@ export class NavbarComponent implements NavItems ,OnInit{
         label: 'Cursos'
       },
       {
-        route: '/contact',
+        route: '/misCursos',
         icon: 'list_alt',
         label: 'Mis cursos'
       },
