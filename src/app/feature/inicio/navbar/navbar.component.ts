@@ -71,7 +71,7 @@ export class NavbarComponent implements NavItems ,OnInit{
         label: 'Gestionar Cursos'
       },
       {
-        route: '/contact',
+        route: '/gestionEstudiantes',
         icon: 'manage_accounts',
         label: 'Gestionar Estudiantes'
       }

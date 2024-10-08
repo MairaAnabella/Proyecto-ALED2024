@@ -1,0 +1,45 @@
+<div *ngIf="data.modo === 'editar'"> 
+    <div mat-dialog-content>
+      <form [formGroup]="estudianteForm">
+        <mat-form-field>
+          <input matInput formControlName="nombre" placeholder="Nombre">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput formControlName="apellido" placeholder="Apellido">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput formControlName="email" placeholder="Email">
+          </mat-form-field>
+    
+       
+      </form>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()" class="btn-cancelar">Cancelar</button>
+      <button mat-button (click)="onSubmit()" cdkFocusInitial class="btn-guardar">Guardar</button>
+    </div>
+  </div>
+  
+  <div *ngIf="data.modo=='agregar'">
+    <div mat-dialog-content>
+      <form [formGroup]="estudianteForm">
+        <mat-form-field>
+            <input matInput formControlName="nombre" placeholder="Nombre">
+          </mat-form-field>
+  
+          <mat-form-field>
+              <input matInput formControlName="apellido" placeholder="Apellido">
+            </mat-form-field>
+  
+            <mat-form-field>
+              <input matInput formControlName="email" placeholder="Email">
+            </mat-form-field>
+      </form>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()" class="btn-cancelar">Cancelar</button>
+      <button mat-button (click)="onSubmit()" cdkFocusInitial class="btn-guardar">Guardar</button>
+    </div>
+  </div>
