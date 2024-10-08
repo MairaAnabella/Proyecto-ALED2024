@@ -10,6 +10,7 @@ import { NgIf } from '@angular/common';
 import { DialogRegistroComponent } from '../dialog-registro/dialog-registro.component';
 import { UserSessionService } from '../../../shared/user-session.service';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -29,7 +30,7 @@ import { AuthService } from '../auth.service';
 export class LoginComponent {
  loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private dialog: MatDialog, private authService:AuthService) {
+  constructor(private fb: FormBuilder, private dialog: MatDialog, private authService:AuthService,private router:Router) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
@@ -43,6 +44,12 @@ export class LoginComponent {
     let email=this.loginForm.get('email')?.value;
     let password=this.loginForm.get('password')?.value;
     this.authService.login(email,password).subscribe((response:any)=>{
+      if(response.success){
+        localStorage.setItem('idRol',response.idRol);
+        localStorage.setItem('idUser',response.idUser);
+        this.router.navigate(['home']);
+        
+      }
 
     })
   }

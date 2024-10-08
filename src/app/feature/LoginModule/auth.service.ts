@@ -13,7 +13,7 @@ export class AuthService {
    login(email:string,contraseña:string): Observable<any>{
     let datosEnviar={
       email:email,
-      contraseña:contraseña
+      password:contraseña
     }
 
     return this.http.post(conexion.url+'login.php',datosEnviar);
