@@ -9,7 +9,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { NgIf } from '@angular/common';
 import { DialogRegistroComponent } from '../dialog-registro/dialog-registro.component';
 import { UserSessionService } from '../../../shared/user-session.service';
-
+import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -29,7 +29,7 @@ import { UserSessionService } from '../../../shared/user-session.service';
 export class LoginComponent {
  loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private dialog: MatDialog) {
+  constructor(private fb: FormBuilder, private dialog: MatDialog, private authService:AuthService) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
@@ -40,10 +40,11 @@ export class LoginComponent {
   get password() { return this.loginForm.get('password'); }
 
   onSubmit() {
-    if (this.loginForm.valid) {
-      console.log('Login form submitted', this.loginForm.value);
-      // Implement your login logic here
-    }
+    let email=this.loginForm.get('email')?.value;
+    let password=this.loginForm.get('password')?.value;
+    this.authService.login(email,password).subscribe((response:any)=>{
+
+    })
   }
 
   openRegistrationDialog() {

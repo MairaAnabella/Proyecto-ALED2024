@@ -6,6 +6,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../auth.service';
+
+import Swal from 'sweetalert2';
+import { Route, Router } from '@angular/router';
+
 @Component({
   selector: 'app-dialog-registro',
   standalone: true,
@@ -20,28 +26,48 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './dialog-registro.component.css'
 })
 export class DialogRegistroComponent {
-  registrationForm: FormGroup;
+  registroForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
-    private dialogRef: MatDialogRef<DialogRegistroComponent>
+    private dialogRef: MatDialogRef<DialogRegistroComponent>,
+    private authService: AuthService,
+    private router:Router
   ) {
-    this.registrationForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(2)]],
-      surname: ['', [Validators.required, Validators.minLength(2)]],
+    this.registroForm = this.fb.group({
+      nombre: ['', [Validators.required, Validators.minLength(2)]],
+      apellido: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      role: ['', Validators.required]
+      rol: ['', Validators.required],
+      action:['']
     });
   }
 
   onSubmit() {
-    if (this.registrationForm.valid) {
-      console.log('Form submitted:', this.registrationForm.value);
-      this.dialogRef.close(this.registrationForm.value);
-    } else {
-      console.log('Form is invalid');
-    }
+    this.registroForm.get('action')?.setValue('crear');
+    let data =this.registroForm.value;
+ 
+    // Convertimos los datos en JSON
+    let jsonData = JSON.stringify(data);
+   
+     this.authService.register(jsonData).subscribe((response: any) => {
+
+      if (response.success) {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Usuario creado exitosamente!",
+          showConfirmButton: false,
+          timer: 1500
+        }).then(()=>{
+          this.dialogRef.close();
+          this.router.navigate(['login']);
+        })
+      }
+    })
+ 
+
   }
 
   onCancel() {
