@@ -1,14 +1,15 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
 import { conexion } from '../../core/config/config';
 import { Observable } from 'rxjs';
+import { isPlatformBrowser} from '@angular/common';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private isLoggedIn = false; // Estado de autenticación
 
-  constructor(private http:HttpClient) { }
+
+  constructor(private http:HttpClient, @Inject(PLATFORM_ID) private platformId: Object) { }
 
    login(email:string,contraseña:string): Observable<any>{
     let datosEnviar={
@@ -30,8 +31,14 @@ export class AuthService {
     return this.http.post(conexion.url+'crudUser.php',datos);
   }
 
-  isAuthenticated(): boolean {
-   
-    return this.isLoggedIn;
+
+ // DEVUELVE SI ESTA LOGUEADO O NO
+  isAuth(): boolean {
+    if (isPlatformBrowser(this.platformId)) {
+      const authStatus = localStorage.getItem('auth_status');
+      return authStatus === 'logged_in';
+    }
+    return false;
   }
+  
 }

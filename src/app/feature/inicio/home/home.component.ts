@@ -5,7 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 interface DashboardButton {
   icon: string;
   text: string;
@@ -16,7 +16,13 @@ interface DashboardButton {
   selector: 'app-home',
   standalone: true,
   imports: [
-    CommonModule, MatCardModule, MatIconModule, MatButtonModule, MatMenuModule,NavbarComponent
+    CommonModule, 
+    MatCardModule, 
+    MatIconModule, 
+    MatButtonModule,
+     MatMenuModule,
+     NavbarComponent,
+
 
   
   ],

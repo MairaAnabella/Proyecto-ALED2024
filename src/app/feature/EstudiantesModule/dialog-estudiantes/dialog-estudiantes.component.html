@@ -9,6 +9,7 @@
             <input matInput formControlName="apellido" placeholder="Apellido">
           </mat-form-field>
 
+
           <mat-form-field>
             <input matInput formControlName="email" placeholder="Email">
           </mat-form-field>
@@ -18,10 +19,14 @@
     </div>
     <div mat-dialog-actions>
       <button mat-button (click)="onNoClick()" class="btn-cancelar">Cancelar</button>
-      <button mat-button (click)="onSubmit()" cdkFocusInitial class="btn-guardar">Guardar</button>
+      <button mat-button (click)="onSubmitEdit()" cdkFocusInitial class="btn-guardar">Guardar</button>
     </div>
   </div>
-  
+
+
+  <!-- ---------------------------------------DIALOG DE AGREGAR ESTUDIANTE--------------------------------------------- -->
+
+
   <div *ngIf="data.modo=='agregar'">
     <div mat-dialog-content>
       <form [formGroup]="estudianteForm">
@@ -36,7 +41,12 @@
             <mat-form-field>
               <input matInput formControlName="email" placeholder="Email">
             </mat-form-field>
-      </form>
+
+            <mat-form-field>
+              <input matInput formControlName="password" placeholder="Password">
+            </mat-form-field>
+
+            </form>
     </div>
     <div mat-dialog-actions>
       <button mat-button (click)="onNoClick()" class="btn-cancelar">Cancelar</button>

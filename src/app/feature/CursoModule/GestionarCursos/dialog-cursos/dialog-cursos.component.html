@@ -4,20 +4,34 @@
       <mat-form-field>
         <input matInput formControlName="nombre" placeholder="Nombre">
       </mat-form-field>
-      <mat-form-field>
-        <textarea matInput formControlName="descripcion" placeholder="Descripción del curso"></textarea>
-      </mat-form-field>
+
       <mat-form-field>
         <mat-select formControlName="tipo" placeholder="Tipo">
           <mat-option value="virtual">Virtual</mat-option>
           <mat-option value="presencial">Presencial</mat-option>
         </mat-select>
       </mat-form-field>
+
+      <mat-form-field>
+        <input matInput formControlName="periodo" placeholder="periodo">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput formControlName="docente" placeholder="docente">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput formControlName="horario" placeholder="horario">
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea matInput formControlName="descripcion" placeholder="Descripción del curso"></textarea>
+      </mat-form-field>
     </form>
   </div>
   <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()" class="btn-cancelar">Cancelar</button>
-    <button mat-button (click)="onSubmit()" cdkFocusInitial class="btn-guardar">Guardar</button>
+    <button mat-button (click)="onSubmitEdit()" cdkFocusInitial class="btn-guardar">Guardar</button>
   </div>
 </div>
 
@@ -27,14 +41,28 @@
       <mat-form-field>
         <input matInput formControlName="nombre" placeholder="Nombre">
       </mat-form-field>
-      <mat-form-field>
-        <textarea matInput formControlName="descripcion" placeholder="Descripción del curso"></textarea>
-      </mat-form-field>
+
       <mat-form-field>
         <mat-select formControlName="tipo" placeholder="Tipo">
           <mat-option value="virtual">Virtual</mat-option>
           <mat-option value="presencial">Presencial</mat-option>
         </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput formControlName="periodo" placeholder="periodo">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput formControlName="docente" placeholder="docente">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput formControlName="horario" placeholder="horario">
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea matInput formControlName="descripcion" placeholder="Descripción del curso"></textarea>
       </mat-form-field>
     </form>
   </div>

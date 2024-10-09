@@ -28,6 +28,7 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+
  loginForm: FormGroup;
 
   constructor(private fb: FormBuilder, private dialog: MatDialog, private authService:AuthService,private router:Router) {
@@ -47,13 +48,14 @@ export class LoginComponent {
       if(response.success){
         localStorage.setItem('idRol',response.idRol);
         localStorage.setItem('idUser',response.idUser);
+        localStorage.setItem('auth_status',response.auth_status);
         this.router.navigate(['home']);
         
       }
 
     })
   }
-
+ 
   openRegistrationDialog() {
     const dialogRef = this.dialog.open(DialogRegistroComponent);
 

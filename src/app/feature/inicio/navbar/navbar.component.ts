@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgIf, NgFor } from '@angular/common';
 import { NavItems } from './nav-items';
@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { AuthService } from '../../LoginModule/auth.service';
+
 
 
 
@@ -37,18 +37,19 @@ interface SideNavToggle{
 })
 export class NavbarComponent implements NavItems ,OnInit{
 
+
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
 
   collapsed:boolean=false;
   screenWidth:number=0;
-  islogin!:boolean;
+  islogin:boolean=false;
   items: {
     route: string;
     icon: string;
     label: string;
   }[];
 
-  constructor(private authservice:AuthService) {
+  constructor() {
     this.items = [
       {
         route: '/home',
@@ -79,6 +80,7 @@ export class NavbarComponent implements NavItems ,OnInit{
     ];
   }
 
+
 @HostListener('window:resize',['$event']) //decorador que escucha un evento especifico del DOM este caso la medida de la pantalla
 onResize(event:any){
   this.screenWidth=window.innerWidth;
@@ -90,9 +92,8 @@ onResize(event:any){
 
   ngOnInit(): void {
    this.screenWidth=window.innerWidth;
-   console.log(this.authservice.isAuthenticated());
-   this.islogin=this.authservice.isAuthenticated();
   }
+
 
 
   toggleCollapse(){

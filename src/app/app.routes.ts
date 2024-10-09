@@ -5,14 +5,17 @@ import { CursosComponent } from './feature/CursoModule/cursos/cursos.component';
 import { TablaCursosComponent } from './feature/CursoModule/GestionarCursos/tabla-cursos/tabla-cursos.component';
 import { TablaEstudiantesComponent } from './feature/EstudiantesModule/tabla-estudiantes/tabla-estudiantes.component';
 import { MisCursosComponent } from './feature/CursoModule/mis-cursos/mis-cursos.component';
-
+import { authGuard } from './core/guards/auth.guard';
+import { noAuthGuard} from './core/guards/noauth.guard';
+import { NavbarComponent } from './feature/inicio/navbar/navbar.component';
 
 
 
 export const routes: Routes = [
     { // pone la ruta por defecto
         path: 'login',
-        component:LoginComponent
+        component:LoginComponent,
+        canActivate:[noAuthGuard]
       
 
     },
@@ -20,7 +23,8 @@ export const routes: Routes = [
     {
         path:'',
         redirectTo:'login',
-        pathMatch:'full'
+        pathMatch:'full',
+       
 
     },
 
@@ -28,28 +32,38 @@ export const routes: Routes = [
     {
         path: 'home',
         component: HomeComponent,
+        canActivate:[authGuard]
 
     },
     
     {
         path: 'cursos',
         component:CursosComponent ,
+        canActivate:[authGuard]
 
     },
     {
         path: 'gestionCursos',
         component:TablaCursosComponent ,
+        canActivate:[authGuard]
 
     },  {
         path: 'gestionEstudiantes',
         component:TablaEstudiantesComponent,
+        canActivate:[authGuard]
 
     },
     {
         path: 'misCursos',
         component:MisCursosComponent,
+        canActivate:[authGuard]
 
     },
+    {
+        path:'nav',
+        component:NavbarComponent,
+        canActivate:[authGuard]
+    }
  
    
 
