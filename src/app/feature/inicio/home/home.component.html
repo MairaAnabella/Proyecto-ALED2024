@@ -5,26 +5,28 @@
           <mat-icon>account_circle</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item>
+      <!--     <button mat-menu-item>
             <mat-icon>person</mat-icon>
             <span>Perfil</span>
           </button>
           <button mat-menu-item>
             <mat-icon>settings</mat-icon>
             <span>Configuración</span>
-          </button>
-          <button mat-menu-item>
+          </button> -->
+          <button mat-menu-item (click)="cerrarSesion()">
             <mat-icon>exit_to_app</mat-icon>
             <span>Cerrar sesión</span>
           </button>
         </mat-menu>
       </div>
+
+      
     <header class="dashboard-header">
       <h1 class="mat-headline-2">DevMinds <i class="material-icons sidenav-link-icon brain">{{icon}}</i></h1>
       <p class="mat-subtitle-1">Bienvenido/a a tu espacio de gestión de la formación</p>
     </header>
     <div class="dashboard-grid">
-      <mat-card *ngFor="let button of buttons" [ngClass]="['dashboard-button', button.color]">
+      <mat-card *ngFor="let button of filteredButtons" [ngClass]="['dashboard-button', button.color]">
         <mat-card-content>
           <mat-icon>{{button.icon}}</mat-icon>
           <p> <button mat-button (click)="navigateToPage(button.route)">

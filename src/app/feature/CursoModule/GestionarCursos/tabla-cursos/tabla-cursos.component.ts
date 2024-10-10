@@ -9,10 +9,9 @@ import { Cursos } from '../cursos.model';
 import { DialogCursosComponent } from '../dialog-cursos/dialog-cursos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
-
-
-
 import Swal from 'sweetalert2';
+
+
 
 @Component({
   selector: 'app-tabla-cursos',
@@ -22,7 +21,7 @@ import Swal from 'sweetalert2';
   styleUrl: './tabla-cursos.component.css'
 })
 export class TablaCursosComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'nombre', 'tipo', 'descripcion', 'fechaAlta', 'fechaModificacion', 'acciones'];
+  displayedColumns: string[] = ['id', 'nombre', 'tipo', 'periodo','docente','horario','descripcion', 'fechaAlta', 'fechaModificacion', 'acciones'];
   dataSource: MatTableDataSource<Cursos>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

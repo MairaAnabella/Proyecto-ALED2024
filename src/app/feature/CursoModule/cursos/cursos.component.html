@@ -10,12 +10,13 @@
         <mat-card class="curso-card" 
                   (mouseenter)="curso.mostrarDescripcion = true" 
                   (mouseleave)="curso.mostrarDescripcion = false">
-          <img mat-card-image [src]="curso.imagenUrl" [alt]="curso.nombre">
+          <div class="curso-imagen-placeholder"><h2>{{ curso.nombre }}</h2></div>
           <mat-card-content>
             <h3 class="mat-h2">{{ curso.nombre }}</h3>
+            <p [ngClass]="{'presencial':curso.nombreTipo==='Presencial','virtual':curso.nombreTipo==='Virtual'}">{{curso.nombreTipo}}</p>
             <div [@descripcionEstado]="curso.mostrarDescripcion ? 'mostrar' : 'ocultar'" class="descripcion-container">
               <p>{{ curso.descripcion }}</p>
-              <button mat-flat-button class="btn-inscribirse">
+              <button mat-flat-button class="btn-inscribirse" (click)="incribirse(curso)">
                 <span class="txt-btn">Inscribirse</span>
               </button>
             </div>

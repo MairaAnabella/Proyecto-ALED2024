@@ -15,9 +15,10 @@
       <h3>{{ curso.nombre }}</h3>
       <p>Periodo: {{ curso.periodo }}</p>
       <p>Docente: {{ curso.docente }}</p>
+      <p>Tipo:{{curso.nombreTipo}}</p>
 
         <p>{{ curso.horario }}</p>
-        <button class="unsubscribe" (click)="unsubscribe(curso.id)">Dar de baja</button>
+        <button class="unsubscribe" (click)="bajaCurso(curso)">Dar de baja</button>
       
     </div>
   }

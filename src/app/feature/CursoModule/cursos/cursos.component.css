@@ -58,3 +58,31 @@ p {
   .txt-btn{
   color: #ffff;
 }}
+
+
+
+
+.curso-imagen-placeholder {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 13px;
+
+}
+
+
+/* estilos segun tipo de clases */
+
+.presencial{
+  background-color: #E5D9F2;
+  color: #A594F9;
+
+}
+
+.virtual{
+  background-color:#FFE6E6 ;
+  color: #AD88C6;
+}

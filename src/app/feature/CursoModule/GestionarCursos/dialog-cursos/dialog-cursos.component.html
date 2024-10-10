@@ -7,8 +7,8 @@
 
       <mat-form-field>
         <mat-select formControlName="tipo" placeholder="Tipo">
-          <mat-option value="virtual">Virtual</mat-option>
-          <mat-option value="presencial">Presencial</mat-option>
+          <mat-option value="1">Presencial</mat-option>
+          <mat-option value="2">Virtual</mat-option>
         </mat-select>
       </mat-form-field>
 
@@ -44,8 +44,8 @@
 
       <mat-form-field>
         <mat-select formControlName="tipo" placeholder="Tipo">
-          <mat-option value="virtual">Virtual</mat-option>
-          <mat-option value="presencial">Presencial</mat-option>
+          <mat-option value="1">Presencial</mat-option>
+          <mat-option value="2">Virtual</mat-option>
         </mat-select>
       </mat-form-field>
 
@@ -68,6 +68,6 @@
   </div>
   <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()" class="btn-cancelar">Cancelar</button>
-    <button mat-button (click)="onSubmit()" cdkFocusInitial class="btn-guardar">Guardar</button>
+    <button mat-button (click)="onSubmit()" cdkFocusInitial class="btn-guardar" >Guardar</button><!--agregar disabled -->
   </div>
 </div>

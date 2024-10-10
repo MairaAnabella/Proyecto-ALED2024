@@ -7,7 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClient } from '@angular/common/http';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../../core/service/auth.service';
 
 import Swal from 'sweetalert2';
 import { Route, Router } from '@angular/router';

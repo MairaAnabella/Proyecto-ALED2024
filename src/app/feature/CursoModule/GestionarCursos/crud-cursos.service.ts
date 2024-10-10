@@ -30,4 +30,39 @@ export class CrudCursosService {
     }
     return this.http.post<void>(conexion.url + 'crudCursos.php',datos);
   }
+
+  incripcionCurso(id:any,action:any){
+    let idUser=localStorage.getItem('idUser');
+    let datos={
+      idCurso:id,
+      action:action,
+      idUser
+    }
+
+    console.log(datos)
+
+    return this.http.post<void>(conexion.url+'gestionInscripciones.php',datos);
+  }
+  misCursos(){
+    let userId=localStorage.getItem('idUser');
+    let datos={
+      idUser:userId,
+      action:'misCursos'
+    }
+
+    return this.http.post<void>(conexion.url+'gestionInscripciones.php',datos);
+
+  }
+
+  bajaCurso(id:any,action:any){
+    let idUser=localStorage.getItem('idUser');
+    let datos={
+      idCurso:id,
+      action:action,
+      idUser
+    }
+    return this.http.post<void>(conexion.url+'gestionInscripciones.php',datos)
+  }
+
+
 }

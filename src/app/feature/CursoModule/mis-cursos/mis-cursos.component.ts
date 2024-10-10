@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MiCurso } from './miCurso.model';
 import { trigger, transition, style, animate, state } from '@angular/animations';
+import { CrudCursosService } from '../GestionarCursos/crud-cursos.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-mis-cursos',
@@ -44,17 +46,49 @@ import { trigger, transition, style, animate, state } from '@angular/animations'
   templateUrl: './mis-cursos.component.html',
   styleUrl: './mis-cursos.component.css'
 })
-export class MisCursosComponent {
-  miCurso: MiCurso[] = [
-    { id: 1, nombre: 'Materia MAM 1 (MAM-1)', periodo: 'Anual 2019', docente: 'García Rosana (Titular), Abonjo Lola (JTP)', horario: '',tipo:'' },
-    { id: 2, nombre: 'Comisión: B - Anual 2019', periodo: 'Anual 2019', docente: 'Julianes Profesor (Titular), Sensei Kakaroto (Adjunto)', horario: 'Horario: Mar 11:00 a 13:00',tipo:'' },
-    { id: 3, nombre: 'Comisión: A - Anual 2019', periodo: 'Anual 2019', docente: 'Julianes Profesor (Titular), Sensei Kakaroto (Adjunto)', horario: 'Horario: Jue 14:00 a 16:00',tipo:'' },
-  ];
+export class MisCursosComponent implements OnInit{
+  miCurso: MiCurso[] = [];
+
+  constructor(private service:CrudCursosService){
+    
+  }
+  ngOnInit(): void {
+   this.service.misCursos().subscribe((response:any)=>{
+    this.miCurso=response;
+   })
+  }
+
+
+
+
 
   hoveredCourseId: number | null = null;
 
-  unsubscribe(courseId: number) {
-    this.miCurso = this.miCurso.filter(curso => curso.id !== courseId);
+  bajaCurso(curso:any) {
+    let idCurso=curso['id'];
+    this.service.bajaCurso(idCurso,'baja').subscribe((response:any)=>{
+      if(response.success){
+        Swal.fire({
+          title: "Tu inscripcion al curso "+curso['nombre']+", Fue dada de baja con exito!",
+          showClass: {
+            popup: `
+              animate__animated
+              animate__fadeInUp
+              animate__faster
+            `
+          },
+          hideClass: {
+            popup: `
+              animate__animated
+              animate__fadeOutDown
+              animate__faster
+            `
+          }
+        }).then(()=>{
+          window.location.reload();
+        })
+      } 
+    })
   }
 
   onAnimationDone(event: any, courseId: number) {
@@ -72,3 +106,4 @@ export class MisCursosComponent {
     this.hoveredCourseId = null;
   }
 }
+1

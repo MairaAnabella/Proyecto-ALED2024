@@ -92,6 +92,29 @@ onResize(event:any){
 
   ngOnInit(): void {
    this.screenWidth=window.innerWidth;
+
+   const idRol = localStorage.getItem('idRol'); // Obtener el id del usuario
+
+   // Rutas generales accesibles por todos los usuarios
+   const commonItems = [
+     { route: '/home', icon: 'home', label: 'Inicio' },
+     { route: '/cursos', icon: 'menu_book', label: 'Cursos' },
+     { route: '/misCursos', icon: 'list_alt', label: 'Mis cursos' }
+   ];
+
+   // Rutas restringidas solo si el userId es diferente de 2
+   const gestionItems = [
+     { route: '/gestionCursos', icon: 'edit_note', label: 'Gestionar Cursos' },
+     { route: '/gestionEstudiantes', icon: 'manage_accounts', label: 'Gestionar Estudiantes' }
+   ];
+
+   // Si el userId no es '2', mostrar todas las rutas, de lo contrario, solo mostrar las comunes
+   if (idRol !== '2') {
+     this.items = [...commonItems, ...gestionItems]; // Mostrar todas las rutas si el userId no es 2
+   } else {
+     this.items = [...commonItems]; // Solo rutas comunes si el userId es 2
+   }
+ 
   }
 
 

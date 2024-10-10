@@ -64,11 +64,11 @@
     font-size: 1.2rem;
     color: #666;
   }
-  .dashboard-grid {
+   .dashboard-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
-  }
+  } *
   .dashboard-button {
     text-align: center;
     padding: 1.5rem;

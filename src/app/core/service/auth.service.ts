@@ -1,15 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
-import { conexion } from '../../core/config/config';
+import { conexion } from '../config/config';
 import { Observable } from 'rxjs';
 import { isPlatformBrowser} from '@angular/common';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
 
-  constructor(private http:HttpClient, @Inject(PLATFORM_ID) private platformId: Object) { }
+  constructor(private http:HttpClient, @Inject(PLATFORM_ID) private platformId: Object, private router:Router) { }
 
    login(email:string,contraseña:string): Observable<any>{
     let datosEnviar={
@@ -20,10 +21,19 @@ export class AuthService {
     return this.http.post(conexion.url+'login.php',datosEnviar);
   } 
 
-/*   logout(): void {
-    this.isLoggedIn = false;
+  logout(): void {
+    localStorage.removeItem('idRol');
+    localStorage.removeItem('idUser');
+    localStorage.removeItem('auth_status');
+    
+  if(localStorage.getItem('auth_status')===null){
+
+    this.router.navigate(['/'], { replaceUrl: true });
+   
+  };
+
   }
- */
+ 
 
   register(datos:any):Observable<any>{
     console.log(datos)

@@ -4,6 +4,6 @@ export interface MiCurso {
     periodo: string;
     docente: string;
     horario: string;
-    tipo:string;
+    nombreTipo:string;
 
   }

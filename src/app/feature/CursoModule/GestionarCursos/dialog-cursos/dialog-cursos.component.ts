@@ -35,7 +35,7 @@ export class DialogCursosComponent {
       this.cursoForm.patchValue({
         id:data.curso.id,
         nombre:data.curso.nombre,
-        tipo:data.curso.tipo,
+        tipo:data.curso.nombreTipo,
         periodo:data.curso.periodo,
         docente:data.curso.docente,
         horario:data.curso.horario,
