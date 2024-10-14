@@ -35,7 +35,7 @@ export class DialogCursosComponent {
       this.cursoForm.patchValue({
         id:data.curso.id,
         nombre:data.curso.nombre,
-        tipo:data.curso.nombreTipo,
+        tipo:data.curso.tipo,
         periodo:data.curso.periodo,
         docente:data.curso.docente,
         horario:data.curso.horario,
@@ -72,7 +72,7 @@ export class DialogCursosComponent {
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: "Usuario creado exitosamente!",
+          title: "Curso creado exitosamente!",
           showConfirmButton: false,
           timer: 1500
         }).then(() => {
@@ -87,7 +87,7 @@ export class DialogCursosComponent {
 
   
   onSubmitEdit() {
-
+    this.cursoForm.get('action')?.setValue('editar');
     console.log(this.cursoForm.value);
     let data = this.cursoForm.value;
     let jsonData = JSON.stringify(data);
@@ -96,7 +96,7 @@ export class DialogCursosComponent {
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: "Usuario editado exitosamente!",
+          title: "Curso editado exitosamente!",
           showConfirmButton: false,
           timer: 1500
         }).then(() => {

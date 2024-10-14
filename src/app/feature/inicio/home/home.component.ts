@@ -31,6 +31,7 @@ interface DashboardButton {
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
+
 icon='psychology';
   buttons: DashboardButton[] = [
     { icon: 'menu_book', text: 'CURSOS', color: 'purple' , route:'cursos' },
@@ -45,6 +46,7 @@ icon='psychology';
 
   ngOnInit(): void {
     const idRol = localStorage.getItem('idRol'); // Obtener el id del usuario
+   
     console.log(idRol)
 
     if (idRol === '2') {
@@ -67,6 +69,18 @@ icon='psychology';
   }
 
   cerrarSesion() {
-    this.authService.logout();
+    this.authService.logout().subscribe((response:any)=>{
+      if(response.success){
+        localStorage.removeItem('idRol');
+        localStorage.removeItem('idUser');
+        localStorage.removeItem('auth_status');
+        
+      if(localStorage.getItem('auth_status')===null){
+    
+        this.router.navigate(['/'], { replaceUrl: true });
+       
+      };
+      }
+    })
   }
 }

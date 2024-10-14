@@ -21,16 +21,14 @@ export class AuthService {
     return this.http.post(conexion.url+'login.php',datosEnviar);
   } 
 
-  logout(): void {
-    localStorage.removeItem('idRol');
-    localStorage.removeItem('idUser');
-    localStorage.removeItem('auth_status');
-    
-  if(localStorage.getItem('auth_status')===null){
+  logout(): Observable<any>{
 
-    this.router.navigate(['/'], { replaceUrl: true });
-   
-  };
+    let datosEnviar={
+      id:localStorage.getItem('idUser'),
+    }
+    return this.http.post(conexion.url+'logout.php',datosEnviar);
+
+  
 
   }
  

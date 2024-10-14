@@ -39,6 +39,7 @@ export class TablaCursosComponent implements OnInit {
     }
     this.crudCurso.obtenerCursos(dato).subscribe((response:any)=>{
       this.dataSource=response;
+      console.log(response)
       this.dataSource.paginator=this.paginator;
     })
    
