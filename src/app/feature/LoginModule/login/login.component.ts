@@ -8,7 +8,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { NgIf } from '@angular/common';
 import { DialogRegistroComponent } from '../dialog-registro/dialog-registro.component';
-import { UserSessionService } from '../../../shared/user-session.service';
 import { AuthService } from '../../../core/service/auth.service';
 import { Router } from '@angular/router';
 @Component({

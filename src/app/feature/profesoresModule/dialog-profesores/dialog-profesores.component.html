@@ -1,1 +1,68 @@
-<p>dialog-profesores works!</p>
+<div *ngIf="data.modo === 'editar'"> 
+    <div mat-dialog-content>
+      <form [formGroup]="profesorForm">
+        <mat-form-field>
+          <input matInput formControlName="nombre" placeholder="Nombre">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput formControlName="apellido" placeholder="Apellido">
+          </mat-form-field>
+
+
+          <mat-form-field>
+            <input matInput formControlName="email" placeholder="Email">
+          </mat-form-field>
+          
+          <mat-form-field appearance="fill"  *matCellDef="let element"> 
+            <mat-label>Email</mat-label>
+            <mat-select [(value)]="element.selectedOption">
+              <mat-option *ngFor="let option of emailOptions" [value]="option">{{ option }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+       
+      </form>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()" class="btn-cancelar">Cancelar</button>
+      <button mat-button (click)="onSubmitEdit()" cdkFocusInitial class="btn-guardar">Guardar</button>
+    </div>
+  </div>
+
+
+  <!-- ---------------------------------------DIALOG DE AGREGAR ESTUDIANTE--------------------------------------------- -->
+
+
+  <div *ngIf="data.modo=='agregar'">
+    <div mat-dialog-content>
+      <form [formGroup]="profesorForm">
+        <mat-form-field>
+            <input matInput formControlName="nombre" placeholder="Nombre">
+          </mat-form-field>
+  
+          <mat-form-field>
+              <input matInput formControlName="apellido" placeholder="Apellido">
+            </mat-form-field>
+  
+            <mat-form-field>
+              <input matInput formControlName="email" placeholder="Email">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill"  *matCellDef="let element"> 
+              <mat-label>Email</mat-label>
+              <mat-select [(value)]="element.selectedOption">
+                <mat-option *ngFor="let option of emailOptions" [value]="option">{{ option }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput formControlName="password" placeholder="Password">
+            </mat-form-field>
+
+            </form>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()" class="btn-cancelar">Cancelar</button>
+      <button mat-button (click)="onSubmit()" cdkFocusInitial class="btn-guardar">Guardar</button>
+    </div>
+  </div>
