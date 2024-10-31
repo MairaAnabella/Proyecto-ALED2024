@@ -37,9 +37,9 @@ export class DialogProfesoresComponent {
         apellido: data.profesor.apellido,
         email: data.profesor.email,
         curso:data.profesor.curso,
-        password:data.profesor.password, // Puedes dejarlo vacío si no lo necesitas mostrar
-        rol: data.profesor.idRol, // Asociamos `idRol` con el campo `rol`
-        action: data.modo // Aquí asignamos el valor de `modo` al campo `action`
+        password:data.profesor.password, 
+        rol: data.profesor.idRol, 
+        action: data.modo 
       });
       console.log(this.profesorForm.value)
     }

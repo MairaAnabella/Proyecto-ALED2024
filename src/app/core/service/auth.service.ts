@@ -48,5 +48,14 @@ export class AuthService {
     }
     return false;
   }
+
+  //DEVUELVE TIPO DE USUARIO
+  getUser(){
+    let idUSer= localStorage.getItem('idUser');
+    
+ 
+    
+    
+  }
   
 }
