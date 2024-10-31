@@ -49,7 +49,7 @@ export class LoginComponent {
         localStorage.setItem('idUser',response.idUser);
         localStorage.setItem('auth_status',response.auth_status);
         this.router.navigate(['home']);
-        
+        window.location.reload();
       }
 
     })

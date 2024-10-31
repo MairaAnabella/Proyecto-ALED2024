@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgIf, NgFor } from '@angular/common';
 import { NavItems } from './nav-items';
@@ -36,6 +36,7 @@ interface SideNavToggle{
 
 })
 export class NavbarComponent implements NavItems ,OnInit{
+
 
 
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
@@ -90,32 +91,32 @@ onResize(event:any){
   }
 }// controla el tamaño del nav segun la pantalla
 
+    // Rutas usuarios generales 
+    commonItems = [
+      { route: '/home', icon: 'home', label: 'Inicio' },
+      { route: '/cursos', icon: 'menu_book', label: 'Cursos' },
+      { route: '/misCursos', icon: 'list_alt', label: 'Mis cursos' }
+    ];
+ 
+      // Rutas administrador
+    gestionItems = [
+    { route: '/gestionCursos', icon: 'edit_note', label: 'Gestionar Cursos' },
+    { route: '/gestionEstudiantes', icon: 'manage_accounts', label: 'Gestionar Estudiantes' }
+  ];
+ idRol = localStorage.getItem('idRol'); // Obtener el id del usuario
   ngOnInit(): void {
    this.screenWidth=window.innerWidth;
 
-   const idRol = localStorage.getItem('idRol'); // Obtener el id del usuario
-
-   // Rutas generales accesibles por todos los usuarios
-   const commonItems = [
-     { route: '/home', icon: 'home', label: 'Inicio' },
-     { route: '/cursos', icon: 'menu_book', label: 'Cursos' },
-     { route: '/misCursos', icon: 'list_alt', label: 'Mis cursos' }
-   ];
-
-   // Rutas restringidas solo si el userId es diferente de 2
-   const gestionItems = [
-     { route: '/gestionCursos', icon: 'edit_note', label: 'Gestionar Cursos' },
-     { route: '/gestionEstudiantes', icon: 'manage_accounts', label: 'Gestionar Estudiantes' }
-   ];
-
-   // Si el userId no es '2', mostrar todas las rutas, de lo contrario, solo mostrar las comunes
-   if (idRol !== '2') {
-     this.items = [...commonItems, ...gestionItems]; // Mostrar todas las rutas si el userId no es 2
-   } else {
-     this.items = [...commonItems]; // Solo rutas comunes si el userId es 2
-   }
+   
+   if (this.idRol !== '2' && this.idRol != null) {
+    this.items = [...this.commonItems, ...this.gestionItems]; // Mostrar todas las rutas si el userId no es 2
+  } else  {
+    this.items = [...this.commonItems]; // Solo rutas comunes si el userId es 2
+  }
+ 
  
   }
+
 
 
 

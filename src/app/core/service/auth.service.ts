@@ -51,8 +51,8 @@ export class AuthService {
 
   //DEVUELVE TIPO DE USUARIO
   getUser(){
-    let idUSer= localStorage.getItem('idUser');
-    
+    let idUSer= localStorage.getItem('idRol');
+    return idUSer;
  
     
     

@@ -9,6 +9,8 @@ import { authGuard } from './core/guards/auth.guard';
 import { noAuthGuard} from './core/guards/noauth.guard';
 import { NavbarComponent } from './feature/inicio/navbar/navbar.component';
 import { TablaProfesoresComponent } from './feature/profesoresModule/tabla-profesores/tabla-profesores.component';
+import { rolUserGuard } from './core/guards/rol-user.guard';
+import { ErrorPageComponent } from './feature/error-page/error-page.component';
 
 
 
@@ -25,7 +27,15 @@ export const routes: Routes = [
         pathMatch:'full',
        
 
-    },{
+    },/* {
+        path:'noAutorizado',
+        component:ErrorPageComponent
+    },
+    {
+        path:'**',
+        redirectTo:'noAutorizado'
+    }, */
+    {
         path: 'home',
         component: HomeComponent,
         canActivate:[authGuard]
@@ -37,20 +47,23 @@ export const routes: Routes = [
 
     },{
         path: 'gestionCursos',
-        component:TablaCursosComponent ,
-        canActivate:[authGuard]
+        /* component:TablaCursosComponent  */
+        loadComponent:()=>import('./feature/CursoModule/GestionarCursos/tabla-cursos/tabla-cursos.component').then((c)=>c.TablaCursosComponent),
+        canActivate:[authGuard,rolUserGuard]
 
     },{
         path: 'gestionEstudiantes',
-        component:TablaEstudiantesComponent,
-        canActivate:[authGuard]
+        /* component:TablaEstudiantesComponent, */
+        loadComponent:()=>import('./feature/EstudiantesModule/tabla-estudiantes/tabla-estudiantes.component').then((c)=>c.TablaEstudiantesComponent),
+        canActivate:[authGuard,rolUserGuard]
 
-    },{
+    },/* {
         path: 'gestionProfesores',
-        component:TablaProfesoresComponent,
-        canActivate:[authGuard]
+       component:TablaProfesoresComponent, 
+        loadComponent:()=>import('./feature/CursoModule/GestionarCursos/tabla-cursos/tabla-cursos.component').then((c)=>c.TablaCursosComponent),
+        canActivate:[authGuard,rolUserGuard]
 
-    },{
+    }, */{
         path: 'misCursos',
         component:MisCursosComponent,
         canActivate:[authGuard]
