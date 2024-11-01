@@ -47,15 +47,27 @@ export class DialogCursosComponent {
 
   createForm() {
     this.cursoForm = new FormGroup({
-      id:new FormControl(''),
-      nombre: new FormControl(''),
-      tipo: new FormControl(''),
-      periodo: new FormControl(''),
-      docente: new FormControl(''),
-      horario: new FormControl(''),
-      descripcion: new FormControl(''),
-      action:new FormControl(''),
-    
+      id: new FormControl(''),
+      nombre: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.pattern('^[a-zA-ZÀ-ÿ\\s]+$')  // Solo letras y espacios
+      ]),
+      tipo: new FormControl('', Validators.required),
+      periodo: new FormControl('', Validators.required),
+      docente: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(50),
+        Validators.pattern('^[a-zA-ZÀ-ÿ\\s]+$')  // Solo letras y espacios
+      ]),
+      horario: new FormControl('', [
+        Validators.required,
+        Validators.pattern('^[0-9]+$')  // Solo números
+      ]),
+      descripcion: new FormControl('', [
+        Validators.maxLength(200)
+      ]),
+      action: new FormControl(''),
     });
   }
   onNoClick(): void {

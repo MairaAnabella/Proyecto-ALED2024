@@ -5,7 +5,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { NgIf } from '@angular/common';
-import { FormsModule, ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Profesores } from '../profesores.model';
 import { CrudProfesoresService } from '../crud-profesores.service';
 import Swal from 'sweetalert2';
@@ -46,17 +46,30 @@ export class DialogProfesoresComponent {
   }
 
   createForm() {
-    this.profesorForm = new FormGroup({
-      id:new FormControl(''),
-      nombre: new FormControl(''),
-      apellido: new FormControl(''),
-      email: new FormControl(''),
-      curso:new FormControl(''),
-      password: new FormControl(''),
-      rol: new FormControl(),
-      action:new FormControl(''),
-
-    });
+ 
+this.profesorForm = new FormGroup({
+  id: new FormControl(''),
+  nombre: new FormControl('', [
+    Validators.required,
+    Validators.pattern('^[a-zA-ZÀ-ÿ\\s]+$')  // Solo letras y espacios
+  ]),
+  apellido: new FormControl('', [
+    Validators.required,
+    Validators.pattern('^[a-zA-ZÀ-ÿ\\s]+$')  // Solo letras y espacios
+  ]),
+  email: new FormControl('', [
+    Validators.required,
+    Validators.email  // Valida el formato de correo electrónico
+  ]),
+  curso: new FormControl('', Validators.required),  // Campo obligatorio
+  password: new FormControl('', [
+    Validators.required,
+    Validators.minLength(8),  // Mínimo de 8 caracteres
+    Validators.maxLength(20)  // Máximo de 20 caracteres
+  ]),
+  rol: new FormControl('', Validators.required),  // Campo obligatorio
+  action: new FormControl('')
+});
   }
   onNoClick(): void {
     this.dialogRef.close();

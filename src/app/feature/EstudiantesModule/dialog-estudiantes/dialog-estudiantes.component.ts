@@ -46,14 +46,26 @@ export class DialogEstudiantesComponent {
 
   createForm() {
     this.estudianteForm = new FormGroup({
-      id:new FormControl(''),
-      nombre: new FormControl(''),
-      apellido: new FormControl(''),
-      email: new FormControl(''),
-      password: new FormControl(''),
-      rol: new FormControl(),
-      action:new FormControl(''),
-
+      id: new FormControl(''),
+      nombre: new FormControl('', [
+        Validators.required,
+        Validators.pattern('^[a-zA-ZÀ-ÿ\\s]+$')  // Solo letras y espacios
+      ]),
+      apellido: new FormControl('', [
+        Validators.required,
+        Validators.pattern('^[a-zA-ZÀ-ÿ\\s]+$')  // Solo letras y espacios
+      ]),
+      email: new FormControl('', [
+        Validators.required,
+        Validators.email  // Valida el formato de correo electrónico
+      ]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8),  // Mínimo de 8 caracteres
+        Validators.maxLength(20)  // Máximo de 20 caracteres
+      ]),
+      rol: new FormControl('', Validators.required),
+      action: new FormControl('')
     });
   }
   onNoClick(): void {
