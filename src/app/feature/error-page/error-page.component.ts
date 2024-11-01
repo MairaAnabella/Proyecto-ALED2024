@@ -44,6 +44,6 @@ export class ErrorPageComponent {
 
   // Navigate to the home page
   goToHomePage() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/home']);
   }
 }

@@ -28,7 +28,6 @@ export const routes: Routes = [
        
 
     },
-    
     {
         path: 'home',
         component: HomeComponent,
@@ -66,11 +65,15 @@ export const routes: Routes = [
         path:'nav',
         component:NavbarComponent,
         canActivate:[authGuard]
-    },{
+    },
+    {
         path:'noAutorizado',
         component:ErrorPageComponent
     },
- 
+    {
+        path:'**',
+        redirectTo:'noAutorizado'
+    },
    
 
 ];
