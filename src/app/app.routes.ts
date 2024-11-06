@@ -2,15 +2,13 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './feature/inicio/home/home.component';
 import { LoginComponent } from './feature/LoginModule/login/login.component';
 import { CursosComponent } from './feature/CursoModule/cursos/cursos.component';
-import { TablaCursosComponent } from './feature/CursoModule/GestionarCursos/tabla-cursos/tabla-cursos.component';
-import { TablaEstudiantesComponent } from './feature/EstudiantesModule/tabla-estudiantes/tabla-estudiantes.component';
 import { MisCursosComponent } from './feature/CursoModule/mis-cursos/mis-cursos.component';
 import { authGuard } from './core/guards/auth.guard';
 import { noAuthGuard} from './core/guards/noauth.guard';
 import { NavbarComponent } from './feature/inicio/navbar/navbar.component';
-import { TablaProfesoresComponent } from './feature/profesoresModule/tabla-profesores/tabla-profesores.component';
 import { rolUserGuard } from './core/guards/rol-user.guard';
 import { ErrorPageComponent } from './feature/error-page/error-page.component';
+
 
 
 
@@ -67,12 +65,12 @@ export const routes: Routes = [
         canActivate:[authGuard]
     },
     {
-        path:'noAutorizado',
+        path:'error',
         component:ErrorPageComponent
     },
     {
         path:'**',
-        redirectTo:'noAutorizado'
+        redirectTo:'error'
     },
    
 
