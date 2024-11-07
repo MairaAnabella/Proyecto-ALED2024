@@ -38,6 +38,7 @@ icon='psychology';
     { icon: 'list_alt', text: 'MIS INSCRIPCIONES', color: 'purple', route:'misCursos' },
     { icon: 'edit_note', text: 'GESTIONAR DE CURSOS', color: 'purple', route:'gestionCursos' },
     { icon: 'manage_accounts', text: 'GESTION DE ESTUDIANTES', color: 'purple' , route:'gestionEstudiantes'},
+    {icon:'library_add', text:'GESTION DE PROFESORES', color:'purple',route:'gestionProfesores'}
   ];
 
     filteredButtons: DashboardButton[] = [];
@@ -49,16 +50,14 @@ icon='psychology';
    
     console.log(idRol)
 
-    if (idRol === '2') {
-      console.log('hola')
-      // Filtra los botones que quieres ocultar para usuarios con id 1
-      this.filteredButtons = this.buttons.filter(button => button.route !== 'gestionEstudiantes' && button.route !=='gestionCursos');
-    } else if (idRol === '1') {
-      // Por ejemplo, mostrar todos los botones si el id es 2
-      this.filteredButtons = this.buttons;
-    } else {
-      // Para otros ids, mostrar solo algunos botones
-      this.filteredButtons = this.buttons.filter(button => button.route === 'cursos');
+    if (idRol === '1') {
+      // Si el idRol es 1, muestra solo los botones de gestión
+      this.filteredButtons = this.buttons.filter(button => 
+        button.route === 'gestionCursos' || button.route === 'gestionEstudiantes' || button.route === 'gestionProfesores');
+    } else if (idRol === '2') {
+      // Si el idRol es 2, muestra solo los botones de cursos e inscripciones
+      this.filteredButtons = this.buttons.filter(button => 
+        button.route === 'cursos' || button.route === 'misCursos');
     }
   }
 

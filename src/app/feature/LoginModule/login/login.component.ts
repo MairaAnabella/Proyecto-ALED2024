@@ -10,6 +10,8 @@ import { NgIf } from '@angular/common';
 import { DialogRegistroComponent } from '../dialog-registro/dialog-registro.component';
 import { AuthService } from '../../../core/service/auth.service';
 import { Router } from '@angular/router';
+
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -50,6 +52,19 @@ export class LoginComponent {
         localStorage.setItem('auth_status',response.auth_status);
         this.router.navigate(['home']);
         window.location.reload();
+      }else{
+        Swal.fire({
+          title: "El usuario o la contraseña no son validos!",
+          width: 600,
+          padding: "3em",
+          color: "#716add",
+          backdrop: `
+            rgba(0,0,123,0.4)
+            
+            left top
+            no-repeat
+          `
+        });
       }
 
     })
