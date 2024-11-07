@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { CrudEstudiantesService } from '../crud-estudiantes.service';
 import { Estudiantes } from '../estudiantes.model';
 import { DialogEstudiantesComponent } from '../dialog-estudiantes/dialog-estudiantes.component';
@@ -15,7 +16,7 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-tabla-estudiantes',
   standalone: true,
-  imports: [MatPaginator, MatIconModule, CommonModule, HttpClientModule, MatTableModule],
+  imports: [MatPaginator, MatIconModule, CommonModule, HttpClientModule, MatTableModule,MatTooltipModule],
   templateUrl: './tabla-estudiantes.component.html',
   styleUrl: './tabla-estudiantes.component.css'
 })

@@ -9,12 +9,14 @@ import { Profesores } from '../profesores.model';
 import { DialogProfesoresComponent } from '../dialog-profesores/dialog-profesores.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatFormField ,MatLabel} from '@angular/material/form-field';
 import { MatSelect , MatOption } from '@angular/material/select';
 import { CrudCursosService } from '../../CursoModule/GestionarCursos/crud-cursos.service';
 
 
 import Swal from 'sweetalert2';
+import { DialogCursoProfesComponent } from '../dialog-curso-profes/dialog-curso-profes.component';
 
 @Component({
   selector: 'app-tabla-profesores',
@@ -28,18 +30,19 @@ import Swal from 'sweetalert2';
     MatFormField,
     MatSelect,
     MatLabel,
-    MatOption
+    MatOption,
+    MatTooltipModule
   ],
   templateUrl: './tabla-profesores.component.html',
   styleUrl: './tabla-profesores.component.css'
 })
 export class TablaProfesoresComponent {
-  displayedColumns: string[] = ['id', 'nombre', 'apellido', 'email','curso', 'fechaAlta', 'fechaModificacion', 'acciones'];
+  displayedColumns: string[] = ['id', 'nombre', 'apellido', 'email',  'fechaAlta', 'fechaModificacion', 'acciones'];
   dataSource: MatTableDataSource<Profesores>;
-  cursosOptions:any=[];
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private crudService: CrudProfesoresService, private dialog: MatDialog, private crudCurso:CrudCursosService) {
+  constructor(private crudService: CrudProfesoresService, private dialog: MatDialog, ) {
     this.dataSource = new MatTableDataSource<Profesores>([]);
   }
 
@@ -50,14 +53,9 @@ export class TablaProfesoresComponent {
     let dato = {
       action: 'obtener'
     }
-    this.crudService.obtenerEstudiante(dato).subscribe((response: any) => {
+    this.crudService.obtenerProfesores(dato).subscribe((response: any) => {
       this.dataSource = response;
       this.dataSource.paginator = this.paginator;
-    })
-
-    this.crudCurso.obtenerCursos(dato).subscribe((response:any)=>{
-      this.cursosOptions=response;
-
     })
 
   }
@@ -80,6 +78,16 @@ export class TablaProfesoresComponent {
      
  
    }
+
+     
+   ProfesCurso(profesor: Profesores) {
+    const dialogRef = this.dialog.open(DialogCursoProfesComponent, {
+      width: '400px',
+      data: { modo: 'añadir', profesor:profesor }
+    });
+    
+
+  }
  
    eliminarProfesor(id: any) {
  

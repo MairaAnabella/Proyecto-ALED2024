@@ -1,6 +1,6 @@
 <div class="container">
     <h1>Gestionar Profesores</h1>
-    <p>Realizar altas,bajas y modificar estudiantes!</p>  
+    <p>Realizar altas,bajas y modificar profesores!</p>  
 </div>
 
 
@@ -27,10 +27,7 @@
         <td mat-cell *matCellDef="let element"> {{element.email}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="curso">
-        <th mat-header-cell *matHeaderCellDef> Curso </th>
-        <td mat-cell *matCellDef="let element"> {{element.curso}} </td>
-      </ng-container>
+     
   
       <ng-container matColumnDef="fechaAlta">
         <th mat-header-cell *matHeaderCellDef> Fecha de Alta </th>
@@ -43,14 +40,18 @@
       </ng-container>
   
       <ng-container matColumnDef="acciones">
-        <th mat-header-cell *matHeaderCellDef>     <button mat-icon-button  class="btn-agregar" (click)="agregarProfesor()" ><!--  -->
+        <th mat-header-cell *matHeaderCellDef>     <button mat-icon-button   matTooltip="Nuevo Profesor"  class="btn-agregar" (click)="agregarProfesor()" ><!--  -->
             <mat-icon class="icon-add">add</mat-icon>
           </button> </th>
         <td mat-cell *matCellDef="let element">
-          <button mat-icon-button class="btn-editar"  (click)="editarProfesor(element)"><!-- -->
+          <button mat-icon-button   matTooltip="Editar Profesor" class="btn-editar"  (click)="editarProfesor(element)"><!-- -->
             <mat-icon class="icon-edit">edit</mat-icon>
           </button>
-          <button mat-icon-button class="btn-eliminar" (click)="eliminarProfesor(element.id)">
+          <button mat-icon-button   matTooltip="Añadir Curso" class="btn-eliminar" (click)="ProfesCurso(element)">
+            <mat-icon class="icon-add-curso">library_add</mat-icon>
+
+          </button>
+          <button mat-icon-button   matTooltip="Eliminar Profesor" class="btn-eliminar" (click)="eliminarProfesor(element.id)">
             <mat-icon class="icon-delete">delete</mat-icon>
           </button>
         </td>

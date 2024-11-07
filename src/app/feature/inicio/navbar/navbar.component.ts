@@ -100,8 +100,10 @@ onResize(event:any){
  
       // Rutas administrador
     gestionItems = [
+    { route: '/home', icon: 'home', label: 'Inicio' },
     { route: '/gestionCursos', icon: 'edit_note', label: 'Gestionar Cursos' },
-    { route: '/gestionEstudiantes', icon: 'manage_accounts', label: 'Gestionar Estudiantes' }
+    { route: '/gestionEstudiantes', icon: 'manage_accounts', label: 'Gestionar Estudiantes' },
+    {route:'/gestionProfesores', icon:'person_add', label:'Gestionar Profesores'}
   ];
  idRol = localStorage.getItem('idRol'); // Obtener el id del usuario
   ngOnInit(): void {
@@ -109,7 +111,7 @@ onResize(event:any){
 
    
    if (this.idRol !== '2' && this.idRol != null) {
-    this.items = [...this.commonItems, ...this.gestionItems]; // Mostrar todas las rutas si el userId no es 2
+    this.items = [ ...this.gestionItems]; // Mostrar todas las rutas si el userId no es 2
   } else  {
     this.items = [...this.commonItems]; // Solo rutas comunes si el userId es 2
   }

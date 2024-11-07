@@ -9,6 +9,7 @@ import { Cursos } from '../cursos.model';
 import { DialogCursosComponent } from '../dialog-cursos/dialog-cursos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import Swal from 'sweetalert2';
 
 
@@ -16,7 +17,7 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-tabla-cursos',
   standalone: true,
-  imports: [MatPaginator, MatIconModule, CommonModule, HttpClientModule, MatTableModule],
+  imports: [MatPaginator, MatIconModule, CommonModule, HttpClientModule, MatTableModule,MatTooltipModule],
   templateUrl: './tabla-cursos.component.html',
   styleUrl: './tabla-cursos.component.css'
 })

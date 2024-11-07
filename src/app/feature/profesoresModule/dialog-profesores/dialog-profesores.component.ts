@@ -1,4 +1,5 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -10,23 +11,28 @@ import { Profesores } from '../profesores.model';
 import { CrudProfesoresService } from '../crud-profesores.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { CrudCursosService } from '../../CursoModule/GestionarCursos/crud-cursos.service';
+import { Curso } from '../../CursoModule/cursos/infoCursos.model';
 
 @Component({
   selector: 'app-dialog-profesores',
   standalone: true,
-  imports: [MatTableModule, MatDialogModule, MatInputModule, MatSelectModule, NgIf, FormsModule, ReactiveFormsModule],
+  imports: [MatTableModule, MatDialogModule, MatInputModule, MatSelectModule, NgIf, FormsModule, ReactiveFormsModule,CommonModule],
   templateUrl: './dialog-profesores.component.html',
   styleUrl: './dialog-profesores.component.css'
 })
-export class DialogProfesoresComponent {
+export class DialogProfesoresComponent implements OnInit {
   profesorForm!: FormGroup;
   profesor!: Profesores;
+  cursos: (Curso & { mostrarDescripcion?: boolean })[] = [];
+  valorSeleccionado:any
 
   constructor(
     public dialogRef: MatDialogRef<DialogProfesoresComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private crudService: CrudProfesoresService,
-    private route: Router
+    private route: Router,
+    private crudCurso:CrudCursosService
   ) {
     console.log(data);
     this.createForm();
@@ -37,12 +43,23 @@ export class DialogProfesoresComponent {
         apellido: data.profesor.apellido,
         email: data.profesor.email,
         curso:data.profesor.curso,
-        password:data.profesor.password, 
         rol: data.profesor.idRol, 
         action: data.modo 
       });
       console.log(this.profesorForm.value)
     }
+  }
+  ngOnInit(): void {
+    let dato={
+      action:'obtener'
+    }
+    this.crudCurso.obtenerCursos(dato).subscribe((response:any)=>{
+      
+      this.cursos=response;
+      console.log(this.cursos)
+    })
+
+ 
   }
 
   createForm() {
@@ -62,12 +79,8 @@ this.profesorForm = new FormGroup({
     Validators.email  // Valida el formato de correo electrónico
   ]),
   curso: new FormControl('', Validators.required),  // Campo obligatorio
-  password: new FormControl('', [
-    Validators.required,
-    Validators.minLength(8),  // Mínimo de 8 caracteres
-    Validators.maxLength(20)  // Máximo de 20 caracteres
-  ]),
-  rol: new FormControl('', Validators.required),  // Campo obligatorio
+
+
   action: new FormControl('')
 });
   }
@@ -76,8 +89,6 @@ this.profesorForm = new FormGroup({
   }
 
   onSubmit() {
-
-    this.profesorForm.get('rol')?.setValue(2);
     this.profesorForm.get('action')?.setValue('crear');
     console.log(this.profesorForm.value);
     let data = this.profesorForm.value;
@@ -92,7 +103,7 @@ this.profesorForm = new FormGroup({
           timer: 1500
         }).then(() => {
           window.location.reload();
-          this.route.navigate(['/gestionEstudiantes']);
+          this.route.navigate(['/gestionProfesores']);
         })
       }
     })

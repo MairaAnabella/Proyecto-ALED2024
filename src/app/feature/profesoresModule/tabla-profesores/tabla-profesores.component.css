@@ -12,7 +12,7 @@
     text-align: center;
     margin-bottom: 20px;
   }
-.btn-editar, .btn-eliminar , .btn-agregar{
+.btn-editar, .btn-eliminar , .btn-agregar, .icon-add-curso{
   margin: 3px;
   background-color: #ffff;
   border:none;
@@ -21,6 +21,9 @@
 
   .icon-add{
     color:darkgreen;
+  }
+  .icon-add-curso{
+    color:darkslateblue;
   }
   .icon-edit{
     color:cornflowerblue;

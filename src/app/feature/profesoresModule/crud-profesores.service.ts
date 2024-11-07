@@ -9,7 +9,7 @@ import { conexion } from '../../core/config/config';
 export class CrudProfesoresService {
   constructor(private http: HttpClient) {}
 
-  obtenerEstudiante(dato:any): Observable<any> {
+  obtenerProfesores(dato:any): Observable<any> {
     console.log(dato)
    
     return this.http.post<Profesores[]>(conexion.url+'crudProfesores.php',dato);
@@ -29,4 +29,11 @@ export class CrudProfesoresService {
   
     return this.http.post<void>(conexion.url+'crudProfesores.php',datos);
   } 
+
+  asignarProfesorCurso(formulario:any): Observable<void>{
+
+    let datos={formulario,action:'asignar'}
+    return this.http.post<void>(conexion.url+'crudProfesores.php',datos)
+
+  }
 }

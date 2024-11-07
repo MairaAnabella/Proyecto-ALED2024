@@ -38,14 +38,15 @@
       </ng-container>
   
       <ng-container matColumnDef="acciones">
-        <th mat-header-cell *matHeaderCellDef>     <button mat-icon-button  class="btn-agregar" (click)="agregarEstudiante()" ><!--  -->
+        <th mat-header-cell *matHeaderCellDef>     
+          <button mat-icon-button matTooltip="Nuevo Estudiante"  class="btn-agregar" (click)="agregarEstudiante()" ><!--  -->
             <mat-icon class="icon-add">add</mat-icon>
           </button> </th>
         <td mat-cell *matCellDef="let element">
-          <button mat-icon-button class="btn-editar"  (click)="editarEstudiante(element)"><!-- -->
+          <button mat-icon-button matTooltip="Editar Estudiante" class="btn-editar"  (click)="editarEstudiante(element)"><!-- -->
             <mat-icon class="icon-edit">edit</mat-icon>
           </button>
-          <button mat-icon-button class="btn-eliminar" (click)="eliminarEstudiante(element.id)">
+          <button mat-icon-button matTooltip="Eliminar Estudiante" class="btn-eliminar" (click)="eliminarEstudiante(element.id)">
             <mat-icon class="icon-delete">delete</mat-icon>
           </button>
         </td>

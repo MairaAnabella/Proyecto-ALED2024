@@ -8,7 +8,7 @@ import { noAuthGuard} from './core/guards/noauth.guard';
 import { NavbarComponent } from './feature/inicio/navbar/navbar.component';
 import { rolUserGuard } from './core/guards/rol-user.guard';
 import { ErrorPageComponent } from './feature/error-page/error-page.component';
-
+import { noRolUserGuard } from './core/guards/no-rol-user.guard';
 
 
 
@@ -34,7 +34,7 @@ export const routes: Routes = [
     },{
         path: 'cursos',
         component:CursosComponent ,
-        canActivate:[authGuard]
+        canActivate:[authGuard,noRolUserGuard]
 
     },{
         path: 'gestionCursos',
@@ -48,16 +48,16 @@ export const routes: Routes = [
         loadComponent:()=>import('./feature/EstudiantesModule/tabla-estudiantes/tabla-estudiantes.component').then((c)=>c.TablaEstudiantesComponent),
         canActivate:[authGuard,rolUserGuard]
 
-    },/* {
+    }, {
         path: 'gestionProfesores',
-       component:TablaProfesoresComponent, 
-        loadComponent:()=>import('./feature/CursoModule/GestionarCursos/tabla-cursos/tabla-cursos.component').then((c)=>c.TablaCursosComponent),
+      
+        loadComponent:()=>import('./feature/profesoresModule/tabla-profesores/tabla-profesores.component').then((c)=>c.TablaProfesoresComponent),
         canActivate:[authGuard,rolUserGuard]
 
-    }, */{
+    }, {
         path: 'misCursos',
         component:MisCursosComponent,
-        canActivate:[authGuard]
+        canActivate:[authGuard,noRolUserGuard]
 
     },{
         path:'nav',

@@ -13,13 +13,17 @@
           <mat-form-field>
             <input matInput formControlName="email" placeholder="Email">
           </mat-form-field>
-          
-          <mat-form-field appearance="fill"  *matCellDef="let element"> 
-            <mat-label>Email</mat-label>
-            <mat-select [(value)]="element.selectedOption">
-              <mat-option *ngFor="let option of emailOptions" [value]="option">{{ option }}</mat-option>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Selecciona una opción</mat-label>
+            <mat-select formControlName="curso">
+              <mat-option *ngFor="let opcion of cursos" [value]="opcion.id">
+                {{ opcion.nombre }}
+              </mat-option>
             </mat-select>
           </mat-form-field>
+        
+          
        
       </form>
     </div>
@@ -47,17 +51,16 @@
             <mat-form-field>
               <input matInput formControlName="email" placeholder="Email">
             </mat-form-field>
-
-            <mat-form-field appearance="fill"  *matCellDef="let element"> 
-              <mat-label>Email</mat-label>
-              <mat-select [(value)]="element.selectedOption">
-                <mat-option *ngFor="let option of emailOptions" [value]="option">{{ option }}</mat-option>
+            <mat-form-field appearance="fill">
+              <mat-label>Selecciona una opción</mat-label>
+              <mat-select formControlName="curso">
+                <mat-option *ngFor="let opcion of cursos" [value]="opcion.id">
+                  {{ opcion.nombre }}
+                </mat-option>
               </mat-select>
             </mat-form-field>
+          
 
-            <mat-form-field>
-              <input matInput formControlName="password" placeholder="Password">
-            </mat-form-field>
 
             </form>
     </div>

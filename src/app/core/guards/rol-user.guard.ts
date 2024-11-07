@@ -1,6 +1,11 @@
 import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
 import { inject } from '@angular/core';
+
+
+
+
+
 export const rolUserGuard: CanActivateFn = (route, state) => {
   const authService=inject(AuthService);
   const userType= authService.getUser();
@@ -10,7 +15,7 @@ export const rolUserGuard: CanActivateFn = (route, state) => {
     return true
 
   }else{
-    router.navigateByUrl('/noAutorizado'); 
+    router.navigateByUrl('/error'); 
     return false;
   }
 

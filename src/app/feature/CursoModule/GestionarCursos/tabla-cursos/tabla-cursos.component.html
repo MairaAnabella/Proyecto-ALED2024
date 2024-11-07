@@ -32,7 +32,7 @@
 
       <ng-container matColumnDef="docente">
         <th mat-header-cell *matHeaderCellDef> Docente </th>
-        <td mat-cell *matCellDef="let element"> {{element.docente}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.nombreProfe + ' '+ element.apelliProfe}} </td>
       </ng-container>
 
       <ng-container matColumnDef="horario">
@@ -56,14 +56,15 @@
       </ng-container>
   
       <ng-container matColumnDef="acciones">
-        <th mat-header-cell *matHeaderCellDef>     <button mat-icon-button  class="btn-agregar" (click)="agregarCurso()">
+        <th mat-header-cell *matHeaderCellDef>     
+          <button mat-icon-button matTooltip="Nuevo Curso"  class="btn-agregar" (click)="agregarCurso()">
             <mat-icon class="icon-add">add</mat-icon>
           </button> </th>
         <td mat-cell *matCellDef="let element">
-          <button mat-icon-button class="btn-editar" (click)="editarCurso(element)">
+          <button mat-icon-button matTooltip="Editar Curso" class="btn-editar" (click)="editarCurso(element)">
             <mat-icon class="icon-edit">edit</mat-icon>
           </button>
-          <button mat-icon-button class="btn-eliminar" (click)="eliminarCurso(element.id)">
+          <button mat-icon-button matTooltip="Eliminar Curso" class="btn-eliminar" (click)="eliminarCurso(element.id)">
             <mat-icon class="icon-delete">delete</mat-icon>
           </button>
         </td>
