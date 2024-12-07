@@ -1,6 +1,6 @@
 <div *ngIf="data.modo === 'editar'"> 
   <div mat-dialog-content>
-    <form [formGroup]="cursoForm">
+    <form [formGroup]="cursoForm" id="cursoForm">
       <mat-form-field>
         <input matInput formControlName="nombre" placeholder="Nombre">
       </mat-form-field>
@@ -15,10 +15,10 @@
       <mat-form-field>
         <input matInput formControlName="periodo" placeholder="periodo">
       </mat-form-field>
-
+ 
       <mat-form-field>
         <input matInput formControlName="docente" placeholder="docente">
-      </mat-form-field>
+      </mat-form-field> 
 
       <mat-form-field>
         <input matInput formControlName="horario" placeholder="horario">
@@ -53,10 +53,10 @@
         <input matInput formControlName="periodo" placeholder="periodo">
       </mat-form-field>
 
-      <mat-form-field>
+ <!--      <mat-form-field>
         <input matInput formControlName="docente" placeholder="docente">
       </mat-form-field>
-
+ -->
       <mat-form-field>
         <input matInput formControlName="horario" placeholder="horario">
       </mat-form-field>

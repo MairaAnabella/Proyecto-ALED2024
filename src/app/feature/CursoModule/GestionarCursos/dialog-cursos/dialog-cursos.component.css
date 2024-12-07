@@ -30,3 +30,11 @@ h1{
     color: aliceblue;
     font-weight: bold;
 }
+
+#cursoForm input:disabled,
+
+#cursoForm .mat-select-disabled {
+
+  color: #080808; /* Color del texto */
+  font-weight: bold !important;
+}

@@ -53,7 +53,7 @@ export class DialogRegistroComponent {
         Validators.required,
         Validators.minLength(6),  // Mínimo de 6 caracteres
         Validators.maxLength(20), // Máximo de 20 caracteres
-        Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#\\$%\\^&\\*])') // Al menos una letra, un número y un carácter especial
+       // Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#\\$%\\^&\\*])') // Al menos una letra, un número y un carácter especial
       ]],
       rol: ['', Validators.required],  // Campo obligatorio
       action: ['']

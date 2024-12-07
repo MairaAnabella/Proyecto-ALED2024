@@ -37,11 +37,12 @@ export class DialogCursosComponent {
         nombre:data.curso.nombre,
         tipo:data.curso.tipo,
         periodo:data.curso.periodo,
-        docente:data.curso.docente,
+        docente:data.curso.nombreProfe+' '+data.curso.apelliProfe,
         horario:data.curso.horario,
         descripcion:data.curso.descripcion,
         action:data.modo
       });
+      this.cursoForm.get('docente')?.disable();
     }
   }
 

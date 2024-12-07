@@ -1,3 +1,3 @@
 export const conexion={
-    url:"http://localhost/backend/",
+    url:"http://localhost/ALED3/backend/",
 };
