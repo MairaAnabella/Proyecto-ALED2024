@@ -70,7 +70,7 @@ export class MisCursosComponent implements OnInit{
     this.service.bajaCurso(idCurso,'baja').subscribe((response:any)=>{
       if(response.success){
         Swal.fire({
-          title: "Tu inscripcion al curso "+curso['nombre']+", Fue dada de baja con exito!",
+          title: "Tu inscripcion al curso "+curso['nombreCurso']+", Fue dada de baja con exito!",
           showClass: {
             popup: `
               animate__animated
