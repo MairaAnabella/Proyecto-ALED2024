@@ -14,10 +14,11 @@
              (@cardAnimation.done)="onAnimationDone($event, curso.id)">
       <h3>{{ curso.nombreCurso }}</h3>
       <p>Periodo: {{ curso.periodo }}</p>
-      <p>Docente: {{ curso.nombreProfe + ' '+ curso.apelliProfe }}</p>
+      <p>Docente: {{ (curso.nombreProfe && curso.apelliProfe) ? curso.nombreProfe + ' ' + curso.apelliProfe : 'Sin definir' }}</p>
+
       <p>Tipo:{{curso.nombreTipo}}</p>
 
-        <p>{{ curso.horario }}</p>
+        <p>Horario:{{ curso.horario }}</p>
         <button class="unsubscribe" (click)="bajaCurso(curso)">Dar de baja</button>
       
     </div>

@@ -94,6 +94,7 @@ this.profesorForm = new FormGroup({
     let data = this.profesorForm.value;
     let jsonData = JSON.stringify(data);
     this.crudService.agregarProfesores(jsonData).subscribe((response: any) => {
+      console.log(response.status)
       if (response.success) {
         Swal.fire({
           position: "top-end",

@@ -65,7 +65,8 @@ export class MisCursosComponent implements OnInit{
   hoveredCourseId: number | null = null;
 
   bajaCurso(curso:any) {
-    let idCurso=curso['id'];
+    console.log(curso)
+    let idCurso=curso['idCurso'];
     this.service.bajaCurso(idCurso,'baja').subscribe((response:any)=>{
       if(response.success){
         Swal.fire({

@@ -14,14 +14,14 @@
             <input matInput formControlName="email" placeholder="Email">
           </mat-form-field>
 
-          <mat-form-field appearance="fill">
+   <!--        <mat-form-field appearance="fill">
             <mat-label>Selecciona una opción</mat-label>
             <mat-select formControlName="curso">
               <mat-option *ngFor="let opcion of cursos" [value]="opcion.id">
                 {{ opcion.nombre }}
               </mat-option>
             </mat-select>
-          </mat-form-field>
+          </mat-form-field> -->
         
           
        
@@ -34,7 +34,7 @@
   </div>
 
 
-  <!-- ---------------------------------------DIALOG DE AGREGAR ESTUDIANTE--------------------------------------------- -->
+  <!-- ---------------------------------------DIALOG DE AGREGAR PROFESOR--------------------------------------------- -->
 
 
   <div *ngIf="data.modo=='agregar'">
@@ -51,14 +51,14 @@
             <mat-form-field>
               <input matInput formControlName="email" placeholder="Email">
             </mat-form-field>
-            <mat-form-field appearance="fill">
+      <!--       <mat-form-field appearance="fill">
               <mat-label>Selecciona una opción</mat-label>
               <mat-select formControlName="curso">
                 <mat-option *ngFor="let opcion of cursos" [value]="opcion.id">
                   {{ opcion.nombre }}
                 </mat-option>
               </mat-select>
-            </mat-form-field>
+            </mat-form-field> -->
           
 
 
